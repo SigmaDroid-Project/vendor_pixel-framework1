@@ -537,7 +537,7 @@ To improve performance, you can set up Face Unlock again in Settings."</string>
     <string name="security_settings_fingerprint_preference_summary_none">Tap to set up fingerprint</string>
     <string name="security_settings_fingerprint_v2_enroll_introduction_message_learn_more">"Learn more about Pixel fingerprint unlock at &lt;a href='http://g.co/pixel/fingerprintunlock'&gt;g.co/pixel/fingerprintunlock&lt;/a&gt;."</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint for work</string>
-    <string name="settingslib_config_headlineFontFamily">google-sans</string>
+    <string name="settingslib_config_headlineFontFamily" translatable="false">@*android:string/config_headlineFontFamily</string>
     <string name="setup_suggestion_summary">Copy data, pay with your phone, and more</string>
     <string name="setup_suggestion_title">Finish setting up</string>
     <string name="smart_battery_footer">To extend battery life, Adaptive Battery may reduce performance and background activity. Some notifications may be delayed.</string>
