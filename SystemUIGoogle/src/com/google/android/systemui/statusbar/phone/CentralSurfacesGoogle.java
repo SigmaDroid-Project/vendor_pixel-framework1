@@ -107,7 +107,6 @@ import com.android.systemui.statusbar.phone.dagger.CentralSurfacesComponent;
 import com.android.systemui.statusbar.phone.ongoingcall.OngoingCallController;
 import com.android.systemui.statusbar.phone.panelstate.PanelExpansionStateManager;
 import com.android.systemui.statusbar.policy.BatteryController;
-import com.android.systemui.statusbar.policy.BurnInProtectionController;
 import com.android.systemui.statusbar.policy.ConfigurationController;
 import com.android.systemui.statusbar.policy.DeviceProvisionedController;
 import com.android.systemui.statusbar.policy.ExtensionController;
@@ -128,7 +127,6 @@ import com.google.android.systemui.dreamliner.DockIndicationController;
 import com.google.android.systemui.dreamliner.DockObserver;
 import com.google.android.systemui.reversecharging.ReverseChargingViewController;
 import com.google.android.systemui.statusbar.KeyguardIndicationControllerGoogle;
-import com.android.systemui.statusbar.policy.BurnInProtectionController;
 
 import java.util.Optional;
 import java.util.concurrent.Executor;
@@ -147,7 +145,7 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
     private final WallpaperNotifier mWallpaperNotifier;
     private final Optional<ReverseChargingViewController> mReverseChargingViewControllerOptional;
     private final SysuiStatusBarStateController mStatusBarStateController;
-
+    
     private long mAnimStartTime;
     private int mReceivingBatteryLevel;
     private boolean mReverseChargingAnimShown;
@@ -242,22 +240,19 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
             @Main MessageRouter messageRouter,
             WallpaperManager wallpaperManager,
             Optional<StartingSurface> startingSurfaceOptional,
-                        TunerService tunerService,
             ActivityLaunchAnimator activityLaunchAnimator,
             NotifPipelineFlags notifPipelineFlags,
             InteractionJankMonitor jankMonitor,
             DeviceStateManager deviceStateManager,
             DreamOverlayStateController dreamOverlayStateController,
             WiredChargingRippleController wiredChargingRippleController,
+            TunerService tunerService,
             IDreamManager dreamManager,
             SysUiState sysUiState,
             TaskHelper taskHelper,
             WallpaperNotifier wallpaperNotifier,
             Optional<ReverseChargingViewController> reverseChargingViewControllerOptional,
-            KeyguardIndicationControllerGoogle keyguardIndicationControllerGoogle,
-            BurnInProtectionController burnInProtectionController,
-            SystemSettings systemSettings,
-            @Background Handler backgroundHandler) {
+            KeyguardIndicationControllerGoogle keyguardIndicationControllerGoogle) {
         super(context, notificationsController, fragmentService, lightBarController,
                 autoHideController, statusBarWindowController, statusBarWindowStateController,
                 keyguardUpdateMonitor, statusBarSignalPolicy, pulseExpansionHandler,
@@ -285,9 +280,9 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
                 screenOffAnimationController, wallpaperController, ongoingCallController,
                 statusBarHideIconsForBouncerManager, lockscreenShadeTransitionController,
                 featureFlags, keyguardUnlockAnimationController, mainHandler, delayableExecutor,
-                messageRouter, wallpaperManager, startingSurfaceOptional, tunerService, activityLaunchAnimator,
+                messageRouter, wallpaperManager, startingSurfaceOptional, activityLaunchAnimator,
                 notifPipelineFlags, jankMonitor, deviceStateManager, dreamOverlayStateController,
-                wiredChargingRippleController, dreamManager, taskHelper, sysUiState, burnInProtectionController, systemSettings, handler);
+                wiredChargingRippleController, tunerService, dreamManager, sysUiState, taskHelper);
         mBatteryStateChangeCallback = new BatteryController.BatteryStateChangeCallback() {
             @Override
             public void onBatteryLevelChanged(int i, boolean z, boolean z2) {
