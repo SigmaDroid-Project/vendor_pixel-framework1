@@ -194,10 +194,7 @@ public class QSFactoryImplGoogle extends QSFactoryImpl {
         	cpuInfoTileProvider,
         	soundSearchTileProvider,
         	smartPixelsTileProvider,
-        	refreshRateTileProvider,
-                powerShareTileProvider);
-        mReverseChargingTileProvider = reverseChargingTileProvider;
-        mBatterySaverTileGoogleProvider = batterySaverTileGoogleProvider;
+        	refreshRateTileProvider);
     }
 
     @Override
