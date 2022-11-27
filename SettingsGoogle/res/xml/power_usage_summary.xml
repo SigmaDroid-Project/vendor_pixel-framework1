@@ -48,7 +48,7 @@
         settings:controller="com.android.settings.fuelgauge.batterytip.BatteryManagerPreferenceController"
         settings:keywords="@string/keywords_battery_adaptive_preferences"
         settings:searchable="true" />
-
+        
     <Preference
         android:fragment="com.google.android.settings.fuelgauge.reversecharging.ReverseChargingDashboardFragment"
         android:key="reverse_charging"
@@ -56,12 +56,6 @@
         settings:controller="com.google.android.settings.fuelgauge.reversecharging.ReverseChargingPreferenceController"
         settings:keywords="@string/keywords_battery_share_settings"
         settings:searchable="true" />
-
-    <SwitchPreference
-        android:key="battery_percentage"
-        android:summary="@string/battery_percentage_description"
-        android:title="@string/battery_percentage"
-        settings:controller="com.android.settings.display.BatteryPercentagePreferenceController" />
 
     <com.android.settingslib.widget.FooterPreference
         android:key="power_usage_footer"
