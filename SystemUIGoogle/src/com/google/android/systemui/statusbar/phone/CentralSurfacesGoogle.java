@@ -57,6 +57,7 @@ import com.android.systemui.keyguard.KeyguardViewMediator;
 import com.android.systemui.keyguard.ScreenLifecycle;
 import com.android.systemui.keyguard.WakefulnessLifecycle;
 import com.android.systemui.model.SysUiState;
+import com.android.systemui.statusbar.policy.TaskHelper;
 import com.android.systemui.navigationbar.NavigationBarController;
 import com.android.systemui.plugins.FalsingManager;
 import com.android.systemui.plugins.PluginDependencyProvider;
@@ -110,6 +111,7 @@ import com.android.systemui.statusbar.policy.BurnInProtectionController;
 import com.android.systemui.statusbar.policy.ConfigurationController;
 import com.android.systemui.statusbar.policy.DeviceProvisionedController;
 import com.android.systemui.statusbar.policy.ExtensionController;
+import com.android.systemui.statusbar.policy.FlashlightController;
 import com.android.systemui.statusbar.policy.KeyguardStateController;
 import com.android.systemui.statusbar.policy.UserInfoControllerImpl;
 import com.android.systemui.statusbar.policy.UserSwitcherController;
@@ -239,20 +241,49 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
             @Main MessageRouter messageRouter,
             WallpaperManager wallpaperManager,
             Optional<StartingSurface> startingSurfaceOptional,
-            TunerService tunerService,
             ActivityLaunchAnimator activityLaunchAnimator,
             NotifPipelineFlags notifPipelineFlags,
             InteractionJankMonitor jankMonitor,
             DeviceStateManager deviceStateManager,
             DreamOverlayStateController dreamOverlayStateController,
             WiredChargingRippleController wiredChargingRippleController,
+            TunerService tunerService,
             IDreamManager dreamManager,
-            TaskHelper taskHelper,
             SysUiState sysUiState,
-            BurnInProtectionController burnInProtectionController,
-            SystemSettings systemSettings,
-            @Background Handler backgroundHandler) {
-        super(context, notificationsController, fragmentService, lightBarController, autoHideController, statusBarWindowController, keyguardUpdateMonitor, pulseExpansionHandler, notificationWakeUpCoordinator, keyguardBypassController, keyguardStateController, headsUpManagerPhone, keyguardIndicationController, statusBarTouchableRegionManager, dynamicPrivacyController, falsingCollector, falsingManager, broadcastDispatcher, notificationEntryManager, notificationGutsManager, notificationLogger, notificationInterruptStateProvider, notificationViewHierarchyManager, panelExpansionStateManager, keyguardViewMediator, displayMetrics, metricsLogger, uiBgExecutor, notificationMediaManager, lockScreenUserManager, remoteInputManager, userSwitcherController, batteryController, colorExtractor, screenLifecycle, wakefulnessLifecycle, statusBarStateController, bubblesOptional, visualStabilityManager, deviceProvisionedController, navigationBarController, accessibilityFloatingMenuController, assistManagerLazy, flashlightController, configurationController, notificationShadeWindowController, dozeServiceHost, powerManager, dozeParameters, scrimController, lockscreenWallpaperLazy, screenPinningRequest, dozeScrimController, biometricUnlockControllerLazy, notificationShadeDepthControllerLazy, volumeComponent, commandQueue, centralSurfacesComponentFactory, pluginManager, shadeController, statusBarKeyguardViewManager, viewMediatorCallback, initController, pluginDependencyProvider, keyguardDismissUtil, extensionController, userInfoControllerImpl, phoneStatusBarPolicy, demoModeController, notificationIconAreaController, brightnessSliderFactory, wallpaperController, ongoingCallController, statusBarSignalPolicy, statusBarHideIconsForBouncerManager, featureFlags, keyguardUnlockAnimationController, mainHandler, delayableExecutor, messageRouter, wallpaperManager, jankMonitor, dreamOverlayStateController, tunerService, sysUiState, burnInProtectionController, systemSettings, Handler);
+            TaskHelper taskHelper,
+            WallpaperNotifier wallpaperNotifier,
+            Optional<ReverseChargingViewController> reverseChargingViewControllerOptional,
+            KeyguardIndicationControllerGoogle keyguardIndicationControllerGoogle) {
+        super(context, notificationsController, fragmentService, lightBarController,
+                autoHideController, statusBarWindowController, statusBarWindowStateController,
+                keyguardUpdateMonitor, statusBarSignalPolicy, pulseExpansionHandler,
+                notificationWakeUpCoordinator, keyguardBypassController, keyguardStateController,
+                headsUpManagerPhone, dynamicPrivacyController, falsingManager, falsingCollector,
+                broadcastDispatcher, notificationEntryManager,
+                notificationGutsManager, notificationLogger, notificationInterruptStateProvider,
+                notificationViewHierarchyManager, panelExpansionStateManager, keyguardViewMediator,
+                displayMetrics, metricsLogger, uiBgExecutor, notificationMediaManager,
+                lockScreenUserManager, remoteInputManager, userSwitcherController,
+                batteryController, colorExtractor, screenLifecycle,
+                wakefulnessLifecycle, statusBarStateController,
+                bubblesOptional, visualStabilityManager, deviceProvisionedController,
+                navigationBarController, accessibilityFloatingMenuController, assistManagerLazy,
+                flashlightController, configurationController, notificationShadeWindowController, dozeParameters,
+                scrimController, lockscreenWallpaperLazy,
+                biometricUnlockControllerLazy, dozeServiceHost, powerManager, screenPinningRequest,
+                dozeScrimController, volumeComponent, commandQueue, centralSurfacesComponentFactory,
+                pluginManager, shadeController, statusBarKeyguardViewManager, viewMediatorCallback,
+                initController, timeTickHandler, pluginDependencyProvider, keyguardDismissUtil,
+                extensionController, userInfoControllerImpl, phoneStatusBarPolicy,
+                keyguardIndicationController, demoModeController,
+                notificationShadeDepthControllerLazy, statusBarTouchableRegionManager,
+                notificationIconAreaController, brightnessSliderFactory,
+                screenOffAnimationController, wallpaperController, ongoingCallController,
+                statusBarHideIconsForBouncerManager, lockscreenShadeTransitionController,
+                featureFlags, keyguardUnlockAnimationController, mainHandler, delayableExecutor,
+                messageRouter, wallpaperManager, startingSurfaceOptional, activityLaunchAnimator,
+                notifPipelineFlags, jankMonitor, deviceStateManager, dreamOverlayStateController,
+                wiredChargingRippleController, tunerService, dreamManager, sysUiState, taskHelper);
         mBatteryStateChangeCallback = new BatteryController.BatteryStateChangeCallback() {
             @Override
             public void onBatteryLevelChanged(int i, boolean z, boolean z2) {
