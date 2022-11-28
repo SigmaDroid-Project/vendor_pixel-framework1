@@ -43,8 +43,8 @@ import com.android.systemui.qs.tiles.DeviceControlsTile;
 import com.android.systemui.qs.tiles.DndTile;
 import com.android.systemui.qs.tiles.FPSInfoTile;
 import com.android.systemui.qs.tiles.FlashlightStrengthTile;
-import com.android.systemui.qs.tiles.GloveModeTile;
-import com.android.systemui.qs.tiles.HeadsUpTile;
+//import com.android.systemui.qs.tiles.GloveModeTile;
+//import com.android.systemui.qs.tiles.HeadsUpTile;
 import com.android.systemui.qs.tiles.HotspotTile;
 import com.android.systemui.qs.tiles.InternetTile;
 import com.android.systemui.qs.tiles.LiveDisplayTile;
@@ -72,8 +72,6 @@ import com.android.systemui.qs.tiles.SyncTile;
 import com.android.systemui.qs.tiles.UiModeNightTile;
 import com.android.systemui.qs.tiles.UsbTetherTile;
 import com.android.systemui.qs.tiles.VolumeTile;
-import com.android.systemui.qs.tiles.VPNTetheringTile;
-import com.android.systemui.qs.tiles.VpnTile;
 import com.android.systemui.qs.tiles.WifiTile;
 import com.android.systemui.qs.tiles.WorkModeTile;
 import com.android.systemui.util.leak.GarbageMonitor;
@@ -131,7 +129,6 @@ public class QSFactoryImplGoogle extends QSFactoryImpl {
             Provider<UsbTetherTile> usbTetherTileProvider,
             Provider<SyncTile> syncTileProvider,
             Provider<SoundTile> soundTileProvider,
-            Provider<HeadsUpTile> headsUpTileProvider,
             Provider<RebootTile> rebootTileProvider,
             Provider<VolumeTile> volumeTileProvider,
             Provider<SoundSearchTile> soundSearchTileProvider,
@@ -147,9 +144,7 @@ public class QSFactoryImplGoogle extends QSFactoryImpl {
             Provider<OnTheGoTile> onTheGoTileProvider,
             Provider<CPUInfoTile> cpuInfoTileProvider,
             Provider<ScreenshotTile> screenshotTileProvider,
-            Provider<VPNTetheringTile> vpnTetheringTileProvider,
             Provider<PreferredNetworkTile> preferredNetworkTileProvider,
-            Provider<GloveModeTile> gloveModeTileProvider,
             Provider<CompassTile> compassTileProvider) {
         super(qsHostLazy,
                 customTileBuilderProvider,
@@ -188,11 +183,9 @@ public class QSFactoryImplGoogle extends QSFactoryImpl {
                 usbTetherTileProvider,
                 syncTileProvider,
                 soundTileProvider,
-                headsUpTileProvider,
                 rebootTileProvider,
                 volumeTileProvider,
                 soundSearchTileProvider,
-                vpnTileProvider,
                 liveDisplayTileProvider,
                 readingModeTileProvider,
                 antiFlickerTileProvider,
@@ -206,7 +199,6 @@ public class QSFactoryImplGoogle extends QSFactoryImpl {
                 screenshotTileProvider,
                 vpnTetheringTileProvider,
                 preferredNetworkTileProvider,
-                gloveModeTileProvider,
                 compassTileProvider);
         mReverseChargingTileProvider = reverseChargingTileProvider;
         mBatterySaverTileGoogleProvider = batterySaverTileGoogleProvider;

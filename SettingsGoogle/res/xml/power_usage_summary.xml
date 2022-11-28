@@ -8,7 +8,7 @@
 
     <com.android.settingslib.widget.UsageProgressBarPreference
         android:key="battery_header"
-        android:selectable="true"
+        android:selectable="false"
         android:title="@string/summary_placeholder"
         settings:controller="com.android.settings.fuelgauge.BatteryHeaderPreferenceController" />
 
@@ -27,12 +27,6 @@
         android:key="battery_tip"
         android:title="@string/summary_placeholder"
         settings:controller="com.android.settings.fuelgauge.batterytip.BatteryTipPreferenceController" />
-
-    <com.evolution.settings.preference.SystemSettingSwitchPreference
-        android:key="battery_24_hrs_stats"
-        android:title="@string/advanced_battery_preference_summary_with_hours"
-        android:defaultValue="false"
-        settings:searchable="false" />
 
     <Preference
         android:fragment="com.android.settings.fuelgauge.PowerUsageAdvanced"
@@ -55,19 +49,11 @@
         settings:keywords="@string/keywords_battery_adaptive_preferences"
         settings:searchable="true" />
 
-    <Preference
-        android:fragment="com.android.settings.fuelgauge.smartcharging.SmartChargingSettings"
-        android:key="smart_charging_key"
-        android:title="@string/smart_charging_title"
-        android:summary="@string/smart_charging_summary"
-        settings:searchable="true" />
-
-    <Preference
-        android:fragment="com.android.settings.fuelgauge.BatteryChargeSoundSettings"
-        android:key="battery_charge_sound"
-        android:title="@string/notification_battery_charge_level_title"
-        android:summary="@string/notification_battery_charge_level_summary"
-        settings:searchable="true" />
+    <com.cherish.settings.preferences.SystemSettingSwitchPreference
+        android:key="battery_24_hrs_stats"
+        android:title="@string/advanced_battery_preference_summary_with_hours"
+        android:defaultValue="false"
+        settings:searchable="false" />
 
     <Preference
         android:fragment="com.google.android.settings.fuelgauge.reversecharging.ReverseChargingDashboardFragment"
@@ -88,15 +74,13 @@
         android:title="@string/fast_charging_title"
         android:summary="@string/fast_charging_summary"
         settings:controller="com.android.settings.fuelgauge.FastChargingPreferenceController"/>
-
-    <Preference
-        android:key="high_power_apps"
-        android:title="@string/high_power_apps"
-        android:summary="@string/high_power_apps_summary">
-        <intent android:action="android.settings.IGNORE_BATTERY_OPTIMIZATION_SETTINGS" />
-    </Preference>
-
-    <com.android.settings.fuelgauge.PowerGaugePreference
+		
+	<!-- Preference
+        android:key="sleep_mode"
+        android:title="@string/sleep_mode_title"
+        android:fragment="com.android.settings.fuelgauge.sleepmode.SleepMode" / -->
+		
+	<com.android.settings.fuelgauge.PowerGaugePreference
         android:key="designed_battery_capacity"
         android:title="@string/designed_battery_capacity"
         android:selectable="false" />
