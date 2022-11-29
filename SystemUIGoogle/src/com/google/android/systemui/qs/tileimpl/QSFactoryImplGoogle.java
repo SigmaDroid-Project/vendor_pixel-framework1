@@ -44,7 +44,7 @@ import com.android.systemui.qs.tiles.FPSInfoTile;
 import com.android.systemui.qs.tiles.FlashlightTile;
 //import com.android.systemui.qs.tiles.FlashlightStrengthTile;
 //import com.android.systemui.qs.tiles.GloveModeTile;
-//import com.android.systemui.qs.tiles.HeadsUpTile;
+import com.android.systemui.qs.tiles.HeadsUpTile;
 import com.android.systemui.qs.tiles.HotspotTile;
 import com.android.systemui.qs.tiles.InternetTile;
 import com.android.systemui.qs.tiles.LocationTile;
@@ -74,6 +74,11 @@ import com.android.systemui.qs.tiles.WorkModeTile;
 import com.android.systemui.util.leak.GarbageMonitor;
 import com.google.android.systemui.qs.tiles.BatterySaverTileGoogle;
 import com.google.android.systemui.qs.tiles.ReverseChargingTile;
+
+//crdroid
+import com.android.systemui.qs.tiles.VpnTile;
+import com.android.systemui.qs.tiles.WeatherTile;
+import com.android.systemui.qs.tiles.ProfilesTile;
 
 import javax.inject.Inject;
 import javax.inject.Provider;
@@ -135,7 +140,11 @@ public class QSFactoryImplGoogle extends QSFactoryImpl {
             Provider<SmartPixelsTile> smartPixelsTileProvider,
             Provider<OnTheGoTile> onTheGoTileProvider,
             Provider<CPUInfoTile> cpuInfoTileProvider,
-            Provider<CompassTile> compassTileProvider) {
+            Provider<HeadsUpTile> headsUpTileProvider,
+            Provider<CompassTile> compassTileProvider,
+            Provider<WeatherTile> weatherTileProvider,
+            Provider<VpnTile> vpnTileProvider,
+            Provider<ProfilesTile> profilesTileProvider) {
         super(qsHostLazy,
                 customTileBuilderProvider,
                 wifiTileProvider,
@@ -167,22 +176,26 @@ public class QSFactoryImplGoogle extends QSFactoryImpl {
                 qrCodeScannerTileProvider,
                 oneHandedModeTileProvider,
                 colorCorrectionTileProvider,
-                powerShareTileProvider,
+		ambientDisplayTileProvider,
+		aodTileProvider,
                 caffeineTileProvider,
-                ambientDisplayTileProvider,
-                usbTetherTileProvider,
-                syncTileProvider,
-                soundTileProvider,
-                volumeTileProvider,
+                headsUpTileProvider,
+                powerShareTileProvider,
+                profilesTileProvider,
                 readingModeTileProvider,
-                dataSwitchTileProvider,
-                aodTileProvider,
-                refreshRateTileProvider,
-                fpsInfoTileProvider,
-                smartPixelsTileProvider,
+                syncTileProvider,
+                usbTetherTileProvider,
+                vpnTileProvider,
+                soundTileProvider,
                 onTheGoTileProvider,
                 cpuInfoTileProvider,
-                compassTileProvider);
+                fpsInfoTileProvider,
+                compassTileProvider,
+                dataSwitchTileProvider,
+                volumeTileProvider,
+                smartPixelsTileProvider,
+                weatherTileProvider,
+                refreshRateTileProvider);
         mReverseChargingTileProvider = reverseChargingTileProvider;
         mBatterySaverTileGoogleProvider = batterySaverTileGoogleProvider;
     }

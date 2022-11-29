@@ -196,7 +196,6 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
             NavigationBarController navigationBarController,
             AccessibilityFloatingMenuController accessibilityFloatingMenuController,
             Lazy<AssistManager> assistManagerLazy,
-            FlashlightController flashlightController,
             ConfigurationController configurationController,
             NotificationShadeWindowController notificationShadeWindowController,
             DozeParameters dozeParameters,
@@ -234,7 +233,6 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
             LockscreenShadeTransitionController lockscreenShadeTransitionController,
             FeatureFlags featureFlags,
             KeyguardUnlockAnimationController keyguardUnlockAnimationController,
-            @Main Handler mainHandler,
             @Main DelayableExecutor delayableExecutor,
             @Main MessageRouter messageRouter,
             WallpaperManager wallpaperManager,
@@ -264,8 +262,7 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
                 batteryController, colorExtractor, screenLifecycle,
                 wakefulnessLifecycle, statusBarStateController,
                 bubblesOptional, visualStabilityManager, deviceProvisionedController,
-                navigationBarController, accessibilityFloatingMenuController, assistManagerLazy,
-                flashlightController, configurationController, notificationShadeWindowController, dozeParameters,
+                navigationBarController, accessibilityFloatingMenuController, assistManagerLazy, configurationController, notificationShadeWindowController, dozeParameters,
                 scrimController, lockscreenWallpaperLazy,
                 biometricUnlockControllerLazy, dozeServiceHost, powerManager, screenPinningRequest,
                 dozeScrimController, volumeComponent, commandQueue, centralSurfacesComponentFactory,
@@ -277,10 +274,10 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
                 notificationIconAreaController, brightnessSliderFactory,
                 screenOffAnimationController, wallpaperController, ongoingCallController,
                 statusBarHideIconsForBouncerManager, lockscreenShadeTransitionController,
-                featureFlags, keyguardUnlockAnimationController, mainHandler, delayableExecutor,
+                featureFlags, keyguardUnlockAnimationController, delayableExecutor,
                 messageRouter, wallpaperManager, startingSurfaceOptional, activityLaunchAnimator,
-                notifPipelineFlags, jankMonitor, deviceStateManager, dreamOverlayStateController,
-                wiredChargingRippleController, tunerService, dreamManager, sysUiState);
+                notifPipelineFlags, jankMonitor, deviceStateManager, dreamOverlayStateController, tunerService,
+                wiredChargingRippleController, dreamManager, sysUiState);
         mBatteryStateChangeCallback = new BatteryController.BatteryStateChangeCallback() {
             @Override
             public void onBatteryLevelChanged(int i, boolean z, boolean z2) {
