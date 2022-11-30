@@ -73,7 +73,6 @@ import com.android.systemui.qs.tiles.WifiTile;
 import com.android.systemui.qs.tiles.WorkModeTile;
 import com.android.systemui.util.leak.GarbageMonitor;
 import com.google.android.systemui.qs.tiles.BatterySaverTileGoogle;
-import com.google.android.systemui.qs.tiles.ReverseChargingTile;
 
 import javax.inject.Inject;
 import javax.inject.Provider;
@@ -84,7 +83,6 @@ import dagger.Lazy;
 @SysUISingleton
 public class QSFactoryImplGoogle extends QSFactoryImpl {
     private final Provider<BatterySaverTileGoogle> mBatterySaverTileGoogleProvider;
-    private final Provider<ReverseChargingTile> mReverseChargingTileProvider;
 
     @Inject
     public QSFactoryImplGoogle(
@@ -192,15 +190,12 @@ public class QSFactoryImplGoogle extends QSFactoryImpl {
         soundSearchTileProvider,
         smartPixelsTileProvider,
          refreshRateTileProvider);
-        mReverseChargingTileProvider = reverseChargingTileProvider;
         mBatterySaverTileGoogleProvider = batterySaverTileGoogleProvider;
     }
 
     @Override
     public final QSTileImpl createTileInternal(String str) {
-        if (str.equals("reverse")) {
-            return mReverseChargingTileProvider.get();
-        } else if (str.equals("battery")) {
+        if (str.equals("battery")) {
             return mBatterySaverTileGoogleProvider.get();
         }
         return super.createTileInternal(str);
