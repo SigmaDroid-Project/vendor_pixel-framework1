@@ -153,9 +153,9 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
    private int mReceivingBatteryLevel;
     private boolean mReverseChargingAnimShown;
     private boolean mChargingAnimShown;
-    private final FlashlightController mFlashlightController;
-    private final BurnInProtectionController mBurnInProtectionController;
-     private final SystemSettings mSystemSettings;
+ //   private final FlashlightController mFlashlightController;
+   // private final BurnInProtectionController mBurnInProtectionController;
+   //  private final SystemSettings mSystemSettings;
 
     @SuppressWarnings("OptionalUsedAsFieldOrParameterType")
     @Inject
