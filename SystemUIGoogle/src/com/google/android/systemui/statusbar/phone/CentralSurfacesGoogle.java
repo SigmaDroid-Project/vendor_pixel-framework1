@@ -257,8 +257,8 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
             TaskHelper taskHelper,
             SysUiState sysUiState,
             BurnInProtectionController burnInProtectionController,
-            @Background Handler backgroundHandler,
             WallpaperNotifier wallpaperNotifier,
+            Optional<ReverseChargingViewController> reverseChargingViewControllerOptional,
             KeyguardIndicationControllerGoogle keyguardIndicationControllerGoogle) {
         super(context, notificationsController, fragmentService, lightBarController,
                 autoHideController, statusBarWindowController, statusBarWindowStateController,
