@@ -63,12 +63,6 @@
         settings:keywords="@string/keywords_battery_adaptive_preferences"
         settings:searchable="true" />
 
-    <com.cherish.settings.preferences.SystemSettingSwitchPreference
-        android:key="battery_24_hrs_stats"
-        android:title="@string/advanced_battery_preference_summary_with_hours"
-        android:defaultValue="false"
-        settings:searchable="false" />
-
     <Preference
         android:fragment="com.google.android.settings.fuelgauge.reversecharging.ReverseChargingDashboardFragment"
         android:key="reverse_charging"
