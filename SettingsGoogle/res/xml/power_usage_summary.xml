@@ -15,6 +15,7 @@
     <com.android.settingslib.widget.LayoutPreference
         android:key="battery_help_message"
         android:layout="@layout/preference_battery_error"
+        android:selectable="false"
         settings:searchable="false">
 
         <intent
@@ -31,14 +32,27 @@
     <Preference
         android:fragment="com.android.settings.fuelgauge.PowerUsageAdvanced"
         android:key="battery_usage_summary"
-        android:summary="@string/advanced_battery_preference_summary"
         android:title="@string/advanced_battery_preference_title"
+        settings:keywords="@string/keywords_battery_usage" />
+
+    <com.spark.support.preferences.SystemSettingSwitchPreference
+        android:key="battery_24_hrs_stats"
+        android:title="@string/daily_battery_usage_chart"
+        android:summary="@string/daily_battery_usage_chart_summary"
+        android:defaultValue="false"
         settings:searchable="false" />
+
+    <Preference
+        android:fragment="com.android.settings.fuelgauge.smartcharging.SmartChargingSettings"
+        android:key="smart_charging_key"
+        android:title="@string/smart_charging_title"
+        android:summary="@string/smart_charging_summary" />
 
     <Preference
         android:fragment="com.android.settings.fuelgauge.batterysaver.BatterySaverSettings"
         android:key="battery_saver_summary"
         android:title="@string/battery_saver"
+        settings:keywords="@string/keywords_battery_saver"
         settings:controller="com.android.settings.fuelgauge.BatterySaverController" />
 
     <Preference
@@ -65,8 +79,8 @@
 
     <SwitchPreference
         android:key="battery_percentage"
-        android:summary="@string/battery_percentage_description"
         android:title="@string/battery_percentage"
+        android:summary="@string/battery_percentage_description"
         settings:controller="com.android.settings.display.BatteryPercentagePreferenceController" />
 
     <SwitchPreference
@@ -74,13 +88,14 @@
         android:title="@string/fast_charging_title"
         android:summary="@string/fast_charging_summary"
         settings:controller="com.android.settings.fuelgauge.FastChargingPreferenceController"/>
-		
-	<!-- Preference
-        android:key="sleep_mode"
-        android:title="@string/sleep_mode_title"
-        android:fragment="com.android.settings.fuelgauge.sleepmode.SleepMode" / -->
-		
-	<com.android.settings.fuelgauge.PowerGaugePreference
+
+    <com.spark.support.preferences.SystemSettingSwitchPreference
+        android:key="spark_idle_manager"
+        android:title="@string/idle_manager_title"
+        android:summary="@string/idle_manager_summary"
+        android:defaultValue="false" />
+
+    <com.android.settings.fuelgauge.PowerGaugePreference
         android:key="designed_battery_capacity"
         android:title="@string/designed_battery_capacity"
         android:selectable="false" />
@@ -90,15 +105,19 @@
         android:title="@string/current_battery_capacity"
         android:selectable="false" />
 
-    <com.android.settings.fuelgauge.PowerGaugePreference
+    <com.android.settings.fuelgauge.PowerGaugePreference 
         android:key="battery_charge_cycles"
         android:title="@string/battery_charge_cycles"
         android:selectable="false" />
 
+    <com.android.settings.fuelgauge.PowerGaugePreference
+        android:key="battery_temp"
+        android:title="@string/battery_temp"
+        android:selectable="false" />
+
     <com.android.settingslib.widget.FooterPreference
         android:key="power_usage_footer"
-        android:selectable="false"
         android:title="@string/battery_footer_summary"
+        android:selectable="false"
         settings:searchable="false" />
-
 </PreferenceScreen>
