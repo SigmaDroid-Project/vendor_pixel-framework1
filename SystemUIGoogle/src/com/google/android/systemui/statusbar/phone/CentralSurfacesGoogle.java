@@ -304,7 +304,18 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
                 }
             }
 
-
+            @Override
+            public void onReverseChanged(boolean z, int i, String str) {
+                if (!z && i >= 0 && !TextUtils.isEmpty(str) && mBatteryController.isWirelessCharging() && mChargingAnimShown && !mReverseChargingAnimShown) {
+                    mReverseChargingAnimShown = true;
+                    long uptimeMillis = SystemClock.uptimeMillis() - mAnimStartTime;
+                    long j = uptimeMillis > 1500 ? 0L : 1500 - uptimeMillis;
+                    showChargingAnimation(mReceivingBatteryLevel, i, j);
+                }
+                if (DEBUG) {
+                    Log.d("StatusBarGoogle", "onReverseChanged(): rtx=" + (z ? 1 : 0) + ",rxlevel=" + mReceivingBatteryLevel + ",level=" + i + ",name=" + str + ",wlc=" + (mBatteryController.isWirelessCharging() ? 1 : 0) + ",wlcs=" + mChargingAnimShown + ",rtxs=" + mReverseChargingAnimShown + ",this=" + this);
+                }
+            }
         };
         mReverseChargingViewControllerOptional = reverseChargingViewControllerOptional;
         mKeyguardIndicationController = keyguardIndicationControllerGoogle;
