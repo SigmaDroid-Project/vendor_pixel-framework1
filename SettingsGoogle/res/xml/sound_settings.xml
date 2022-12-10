@@ -26,7 +26,6 @@
     <!-- Media output switcher -->
     <Preference
         android:key="media_output"
-        android:icon="@drawable/ic_app_volume"
         android:title="@string/media_output_title"
         android:dialogTitle="@string/media_output_title"
         android:order="-175"
@@ -155,22 +154,6 @@
         settings:controller="com.android.settings.accessibility.VibrationPreferenceController"
         settings:keywords="@string/keywords_vibration"/>
 
-    <ListPreference
-        android:key="vibration_pattern"
-        android:title="@string/vibration_pattern_title"
-        android:order="-85"
-        android:entries="@array/vibration_pattern_entries"
-        android:entryValues="@array/vibration_pattern_values"/>
-
-    <!-- Custom ringtone vibration pattern preference -->
-    <Preference
-        android:key="custom_vibration_pattern"
-        android:title="@string/custom_vibration_pattern_title"
-        android:summary="@string/custom_vibration_pattern_summary"
-        android:order="-83"
-        android:fragment="com.android.settings.sound.CustomVibrationPreferenceFragment"
-        android:visibility="gone"/>
-
     <com.android.settingslib.PrimarySwitchPreference
         android:key="gesture_prevent_ringing_sound"
         android:title="@string/gesture_prevent_ringing_sound_title"
@@ -197,27 +180,17 @@
         android:ringtoneType="alarm"
         android:order="-60"/>
 
-    <com.crdroid.settings.preferences.SystemSettingSwitchPreference
-        android:key="show_app_volume"
-        android:title="@string/app_volume_title"
-        android:summary="@string/app_volume_summary"
-        android:defaultValue="false"
-        android:order="-5"/>
-
+    <!-- Dial pad tones -->
     <SwitchPreference
         android:key="dial_pad_tones"
-        android:order="-50"
-        android:title="@string/dial_pad_tones_title" />
+        android:title="@string/dial_pad_tones_title"
+        android:order="-50"/>
 
+    <!-- Screen locking sounds -->
     <SwitchPreference
         android:key="screen_locking_sounds"
-        android:order="-45"
-        android:title="@string/screen_locking_sounds_title" />
-
-    <SwitchPreference
-        android:key="screenshot_shutter_sound"
-        android:order="-43"
-        android:title="@string/screenshot_shutter_sound_title" />
+        android:title="@string/screen_locking_sounds_title"
+        android:order="-45"/>
 
     <!-- Charging sounds -->
     <SwitchPreference
