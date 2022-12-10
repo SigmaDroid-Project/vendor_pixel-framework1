@@ -251,7 +251,4 @@ public abstract class SystemUIGoogleModule {
     @Binds
     @SysUISingleton
     abstract AssistManager bindAssistManagerGoogle(AssistManagerGoogle assistManager);
-
-    @Binds
-    abstract ControlsTileResourceConfiguration bindControlsTileResourceConfiguration(GoogleControlsTileResourceConfigurationImpl configuration);
 }
