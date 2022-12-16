@@ -20,7 +20,7 @@ import android.content.Context;
 import android.content.res.AssetManager;
 import android.os.Handler;
 
-import com.android.systemui.SystemUIFactory;
+import com.android.systemui.SystemUIInitializer;
 import com.android.systemui.dagger.GlobalRootComponent;
 import com.android.systemui.navigationbar.gestural.BackGestureTfClassifierProvider;
 import com.android.systemui.screenshot.ScreenshotNotificationSmartActionsProvider;
@@ -33,7 +33,7 @@ import com.google.android.systemui.screenshot.ScreenshotNotificationSmartActions
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutionException;
 
-public class SystemUIGoogleFactory extends SystemUIFactory {
+public class SystemUIGoogleInitializer extends SystemUIInitializer {
     @Override
     protected GlobalRootComponent buildGlobalRootComponent(Context context) {
         return DaggerSystemUIGoogleGlobalRootComponent.builder()
