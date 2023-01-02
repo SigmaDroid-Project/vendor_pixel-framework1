@@ -86,14 +86,6 @@
         android:fragment="com.android.settings.gestures.PickupGestureSettings"
         settings:searchable="false"
         settings:controller="com.android.settings.gestures.PickupGesturePreferenceController" />
-
-    <com.evolution.settings.preference.SecureSettingSwitchPreference
-        android:key="screen_off_udfps_enabled"
-        android:title="@string/ambient_display_screen_off_udfps_title"
-        android:summary="@string/ambient_display_screen_off_udfps_summary"
-        android:defaultValue="false"
-        settings:controller="com.android.settings.security.UdfpsGesturePreferenceController" />
-
     <Preference
         android:key="gesture_power_menu_summary"
         android:title="@string/power_menu_setting_name"
@@ -124,10 +116,4 @@
         android:title="@string/gesture_prevent_ringing_screen_title"
         android:fragment="com.android.settings.gestures.PreventRingingGestureSettings"
         settings:controller="com.android.settings.gestures.PreventRingingParentPreferenceController" />
-
-    <com.android.settingslib.PrimarySwitchPreference
-        android:key="gesture_quick_mute_summary"
-        android:title="@string/quick_mute_title"
-        android:fragment="com.android.settings.gestures.QuickMuteGestureSettings"
-        settings:controller="com.android.settings.gestures.QuickMuteParentPreferenceController" />
 </PreferenceScreen>

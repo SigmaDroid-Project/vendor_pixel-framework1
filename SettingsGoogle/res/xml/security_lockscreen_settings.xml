@@ -87,11 +87,11 @@
             android:summary="@string/doze_on_charge_summary"
             settings:controller="com.android.settings.display.DozeOnChargePreferenceController" />
 
-        <SwitchPreference
+        <!-- SwitchPreference
             android:key="pulse_on_new_tracks"
             android:title="@string/pulse_on_new_tracks_title"
             android:summary="@string/pulse_on_new_tracks_summary"
-            settings:controller="com.android.settings.display.PulseOnNewTracksPreferenceController" />
+            settings:controller="com.android.settings.display.PulseOnNewTracksPreferenceController" / -->
 
         <Preference
             android:fragment="com.android.settings.gestures.TapScreenGestureSettings"
@@ -114,12 +114,12 @@
             settings:controller="com.android.settings.gestures.PickupGesturePreferenceController"
             settings:searchable="false" />
 
-        <com.evolution.settings.preference.SecureSettingSwitchPreference
+        <!-- com.evolution.settings.preference.SecureSettingSwitchPreference
             android:key="screen_off_udfps_enabled"
             android:title="@string/ambient_display_screen_off_udfps_title"
             android:summary="@string/ambient_display_screen_off_udfps_summary"
             android:defaultValue="false"
-            settings:controller="com.android.settings.security.UdfpsGesturePreferenceController" />
+            settings:controller="com.android.settings.security.UdfpsGesturePreferenceController" / -->
 
         <SwitchPreference
             android:key="ambient_display_notification"
