@@ -124,6 +124,10 @@ import com.google.android.systemui.dreamliner.DockObserver;
 import com.google.android.systemui.reversecharging.ReverseChargingViewController;
 import com.google.android.systemui.statusbar.KeyguardIndicationControllerGoogle;
 
+// Spark additions
+import com.android.systemui.util.settings.SystemSettings;
+import com.android.systemui.dagger.qualifiers.Background;
+
 import java.util.Optional;
 import java.util.concurrent.Executor;
 
@@ -233,6 +237,7 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
             @Main MessageRouter messageRouter,
             WallpaperManager wallpaperManager,
             Optional<StartingSurface> startingSurfaceOptional,
+            TunerService tunerService,
             ActivityLaunchAnimator activityLaunchAnimator,
             InteractionJankMonitor jankMonitor,
             DeviceStateManager deviceStateManager,
@@ -241,10 +246,11 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
             SysUiState sysUiState,
             TaskHelper taskHelper,
             BurnInProtectionController burnInProtectionController,
+            SystemSettings systemSettings,
+            @Background Handler backgroundHandler,
             WallpaperNotifier wallpaperNotifier,
             Optional<ReverseChargingViewController> reverseChargingViewControllerOptional,
-            KeyguardIndicationControllerGoogle keyguardIndicationControllerGoogle,
-            TunerService tunerService) {
+            KeyguardIndicationControllerGoogle keyguardIndicationControllerGoogle) {
         super(context, notificationsController, fragmentService, lightBarController,
                 autoHideController, statusBarWindowController, statusBarWindowStateController,
                 keyguardUpdateMonitor, statusBarSignalPolicy, pulseExpansionHandler,
@@ -271,9 +277,9 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
                 screenOffAnimationController, wallpaperController, ongoingCallController,
                 statusBarHideIconsForBouncerManager, lockscreenShadeTransitionController,
                 featureFlags, keyguardUnlockAnimationController, mainHandler, delayableExecutor,
-                messageRouter, wallpaperManager, startingSurfaceOptional, activityLaunchAnimator,
+                messageRouter, wallpaperManager, startingSurfaceOptional, tunerService, activityLaunchAnimator,
                 jankMonitor, deviceStateManager, wiredChargingRippleController,
-                tunerService, dreamManager, sysUiState, taskHelper, burnInProtectionController);
+                dreamManager, taskHelper, sysUiState, burnInProtectionController, systemSettings, backgroundHandler);
         mBatteryStateChangeCallback = new BatteryController.BatteryStateChangeCallback() {
             @Override
             public void onBatteryLevelChanged(int i, boolean z, boolean z2) {
