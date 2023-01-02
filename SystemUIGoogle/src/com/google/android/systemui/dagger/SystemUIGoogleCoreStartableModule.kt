@@ -49,6 +49,9 @@ import dagger.Module
 import dagger.multibindings.ClassKey
 import dagger.multibindings.IntoMap
 
+// Spark Additions
+import com.android.systemui.theme.SparkThemeOverlayController
+
 /**
  * Collection of {@link CoreStartable}s that should be run on AOSP.
  */
@@ -175,7 +178,7 @@ abstract class SystemUIGoogleCoreStartableModule {
     @Binds
     @IntoMap
     @ClassKey(ThemeOverlayController::class)
-    abstract fun bindThemeOverlayController(sysui: ThemeOverlayController): CoreStartable
+    abstract fun bindThemeOverlayController(sysui: SparkThemeOverlayController): CoreStartable
 
     /** Inject into ToastUI.  */
     @Binds
