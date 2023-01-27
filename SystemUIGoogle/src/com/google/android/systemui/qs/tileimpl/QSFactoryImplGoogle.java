@@ -39,7 +39,6 @@ import com.android.systemui.qs.tiles.ColorInversionTile;
 import com.android.systemui.qs.tiles.CompassTile;
 import com.android.systemui.qs.tiles.DataSaverTile;
 import com.android.systemui.qs.tiles.DataSwitchTile;
-import com.android.systemui.qs.tiles.DcDimmingTile;
 import com.android.systemui.qs.tiles.DeviceControlsTile;
 import com.android.systemui.qs.tiles.DndTile;
 import com.android.systemui.qs.tiles.DreamTile;
