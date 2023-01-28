@@ -113,19 +113,19 @@
 
     <!-- Spatial audio -->
     <Preference
-        android:key="spatial_audio_summary"
-        android:title="@string/spatial_audio_title"
         android:fragment="com.android.settings.notification.SpatialAudioSettings"
+        android:key="spatial_audio_summary"
         android:order="-107"
-        settings:controller="com.android.settings.notification.SpatialAudioParentPreferenceController"/>
+        android:title="@string/spatial_audio_title"
+        settings:controller="com.android.settings.notification.SpatialAudioParentPreferenceController" />
 
     <Preference
-        android:key="media_controls_summary"
-        android:title="@string/media_controls_title"
         android:fragment="com.android.settings.sound.MediaControlsSettings"
+        android:key="media_controls_summary"
         android:order="-100"
+        android:title="@string/media_controls_title"
         settings:controller="com.android.settings.sound.MediaControlsParentPreferenceController"
-        settings:keywords="@string/keywords_media_controls"/>
+        settings:keywords="@string/keywords_media_controls" />
 
     <!-- Also vibration -->
     <Preference
