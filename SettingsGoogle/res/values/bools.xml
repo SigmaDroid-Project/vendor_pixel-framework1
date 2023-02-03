@@ -17,7 +17,7 @@
     <bool name="config_show_connectivity_helper_call_quality">false</bool>
     <bool name="config_show_connectivity_helper_d2d">false</bool>
     <bool name="config_show_device_header_in_device_info">false</bool>
-    <bool name="config_show_reverse_charging">false</bool>
+    <bool name="config_show_reverse_charging">true</bool>
     <bool name="config_show_smart_storage_toggle">false</bool>
     <!--bool name="config_show_smooth_display">true</bool-->
     <bool name="config_show_touch_sensitivity">false</bool>
