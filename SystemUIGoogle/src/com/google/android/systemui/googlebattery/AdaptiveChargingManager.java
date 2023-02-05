@@ -37,7 +37,7 @@ import vendor.google.google_battery.IGoogleBattery;
 
 public class AdaptiveChargingManager {
 
-    private static final boolean DEBUG = Log.isLoggable("AdaptiveChargingManager", 3);
+    private static final boolean DEBUG = true;
     private static final String TAG = "AdaptiveChargingManager";
 
     private Context mContext;
