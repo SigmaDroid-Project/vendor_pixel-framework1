@@ -15,6 +15,7 @@
         <item>com.snapchat.android.catalina</item>
         <item>com.google.android.GoogleCamera</item>
         <item>com.google.columbustest</item>
+        <item>com.android.camera</item>
     </string-array>
     <array name="config_dock_bound_components"/>
     <integer-array name="config_face_acquire_device_entry_ignorelist">
