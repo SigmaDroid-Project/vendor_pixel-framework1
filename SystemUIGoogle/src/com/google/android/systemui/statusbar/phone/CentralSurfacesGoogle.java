@@ -72,7 +72,6 @@ import com.android.systemui.shade.CameraLauncher;
 import com.android.systemui.shade.ShadeExpansionStateManager;
 import com.android.systemui.shade.QuickSettingsController;
 import com.android.systemui.statusbar.CommandQueue;
-import com.android.systemui.statusbar.KeyguardIndicationController;
 import com.android.systemui.statusbar.LockscreenShadeTransitionController;
 import com.android.systemui.statusbar.NotificationLockscreenUserManager;
 import com.android.systemui.statusbar.NotificationMediaManager;
@@ -228,7 +227,6 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
             UserInfoControllerImpl userInfoControllerImpl,
             PhoneStatusBarPolicy phoneStatusBarPolicy,
             KeyguardIndicationControllerGoogle keyguardIndicationControllerGoogle,
-            //KeyguardIndicationController keyguardIndicationController,
             DemoModeController demoModeController,
             Lazy<NotificationShadeDepthController> notificationShadeDepthControllerLazy,
             StatusBarTouchableRegionManager statusBarTouchableRegionManager,
