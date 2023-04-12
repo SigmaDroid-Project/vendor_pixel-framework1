@@ -124,7 +124,6 @@ import com.google.android.systemui.NotificationLockscreenUserManagerGoogle;
 import com.google.android.systemui.dreamliner.DockIndicationController;
 import com.google.android.systemui.dreamliner.DockObserver;
 import com.google.android.systemui.reversecharging.ReverseChargingViewController;
-import com.google.android.systemui.smartspace.SmartSpaceController;
 import com.google.android.systemui.statusbar.KeyguardIndicationControllerGoogle;
 
 import java.util.Optional;
@@ -183,7 +182,7 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
             MetricsLogger metricsLogger,
             @UiBackground Executor uiBgExecutor,
             NotificationMediaManager notificationMediaManager,
-            NotificationLockscreenUserManagerGoogle notificationLockscreenUserManagerGoogle,
+            NotificationLockscreenUserManager lockScreenUserManager,
             NotificationRemoteInputManager remoteInputManager,
             UserSwitcherController userSwitcherController,
             BatteryController batteryController,
@@ -258,7 +257,7 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
                 broadcastDispatcher, notificationGutsManager, notificationLogger, notificationInterruptStateProvider,
                 shadeExpansionStateManager, keyguardViewMediator,
                 displayMetrics, metricsLogger, uiBgExecutor, notificationMediaManager,
-                notificationLockscreenUserManagerGoogle, remoteInputManager, userSwitcherController,
+                lockScreenUserManager, remoteInputManager, userSwitcherController,
                 batteryController, colorExtractor, screenLifecycle,
                 wakefulnessLifecycle, statusBarStateController,
                 bubblesOptional, deviceProvisionedController,
@@ -313,8 +312,6 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
         mKeyguardIndicationController = keyguardIndicationControllerGoogle;
         mStatusBarStateController = statusBarStateController;
         mWallpaperNotifier = wallpaperNotifier;
-        mSmartSpaceController = smartSpaceController;
-        mNotificationLockscreenUserManagerGoogle = notificationLockscreenUserManagerGoogle;
     }
 
     @Override
@@ -341,11 +338,5 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
         mChargingAnimShown = true;
         super.showWirelessChargingAnimation(i);
         mAnimStartTime = SystemClock.uptimeMillis();
-    }
-
-    @Override
-    public void setLockscreenUser(int i) {
-        super.setLockscreenUser(i);
-        mSmartSpaceController.reloadData();
     }
 }
