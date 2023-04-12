@@ -93,8 +93,7 @@ import com.google.android.systemui.qs.dagger.QSModuleGoogle;
 import com.google.android.systemui.qs.tileimpl.QSFactoryImplGoogle;
 import com.google.android.systemui.reversecharging.ReverseChargingController;
 import com.google.android.systemui.reversecharging.dagger.ReverseChargingModule;
-import com.google.android.systemui.smartspace.BcSmartspaceDataProvider;
-import com.google.android.systemui.smartspace.dagger.SmartspaceGoogleModule;
+import com.android.systemui.smartspace.dagger.SmartspaceModule;
 import com.google.android.systemui.statusbar.dagger.StartCentralSurfacesGoogleModule;
 import com.google.android.systemui.statusbar.KeyguardIndicationControllerGoogle;
 import com.google.android.systemui.statusbar.policy.BatteryControllerImplGoogle;
@@ -116,7 +115,7 @@ import dagger.Lazy;
         ReferenceScreenshotModule.class,
         StartCentralSurfacesGoogleModule.class,
         VolumeModule.class,
-        SmartspaceGoogleModule.class,
+        SmartspaceModule.class,
         DreamlinerModule.class,
         ReverseChargingModule.class,
         AssistModule.class,
@@ -268,10 +267,4 @@ public abstract class SystemUIGoogleModule {
 
     @Binds
     abstract ControlsTileResourceConfiguration bindControlsTileResourceConfiguration(GoogleControlsTileResourceConfigurationImpl configuration);
-
-    @Provides
-    @SysUISingleton
-    static BcSmartspaceDataPlugin provideBcSmartspaceDataPlugin() {
-        return new BcSmartspaceDataProvider();
-    }
 }
