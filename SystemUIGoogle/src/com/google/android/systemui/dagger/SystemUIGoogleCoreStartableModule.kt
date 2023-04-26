@@ -45,7 +45,6 @@ import com.android.systemui.util.leak.GarbageMonitor
 import com.android.systemui.volume.VolumeUI
 import com.android.systemui.wmshell.WMShell
 import com.google.android.systemui.GoogleServices
-import com.google.android.systemui.smartspace.KeyguardSmartspaceStartable
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.ClassKey
@@ -214,12 +213,6 @@ abstract class SystemUIGoogleCoreStartableModule {
     @IntoMap
     @ClassKey(GoogleServices::class)
     abstract fun bindGoogleServices(sysui: GoogleServices): CoreStartable
-
-    /** Inject into KeyguardSmartspaceStartable. */
-    @Binds
-    @IntoMap
-    @ClassKey(KeyguardSmartspaceStartable::class)
-    abstract fun bindKeyguardSmartspaceStartable(sysui: KeyguardSmartspaceStartable): CoreStartable
 
     /** Inject into SmartPixelsReceiver.  */
     @Binds
