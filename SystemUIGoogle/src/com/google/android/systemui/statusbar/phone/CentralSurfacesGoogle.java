@@ -102,7 +102,6 @@ import com.android.systemui.statusbar.phone.StatusBarTouchableRegionManager;
 import com.android.systemui.statusbar.phone.dagger.CentralSurfacesComponent;
 import com.android.systemui.statusbar.phone.ongoingcall.OngoingCallController;
 import com.android.systemui.statusbar.policy.BatteryController;
-import com.android.systemui.statusbar.policy.BurnInProtectionController;
 import com.android.systemui.statusbar.policy.ConfigurationController;
 import com.android.systemui.statusbar.policy.DeviceProvisionedController;
 import com.android.systemui.statusbar.policy.ExtensionController;
@@ -122,7 +121,6 @@ import com.android.wm.shell.startingsurface.StartingSurface;
 
 import com.google.android.systemui.dreamliner.DockIndicationController;
 import com.google.android.systemui.dreamliner.DockObserver;
-import com.google.android.systemui.reversecharging.ReverseChargingViewController;
 
 import com.google.android.systemui.statusbar.KeyguardIndicationControllerGoogle;
 
@@ -140,13 +138,10 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
     private static final boolean DEBUG = Log.isLoggable("StatusBarGoogle", 3);
     private final BatteryController.BatteryStateChangeCallback mBatteryStateChangeCallback;
     private final KeyguardIndicationControllerGoogle mKeyguardIndicationController;
-    private final WallpaperNotifier mWallpaperNotifier;
-    private final Optional<ReverseChargingViewController> mReverseChargingViewControllerOptional;
     private final SysuiStatusBarStateController mStatusBarStateController;
 
     private long mAnimStartTime;
     private int mReceivingBatteryLevel;
-    private boolean mReverseChargingAnimShown;
     private boolean mChargingAnimShown;
     private Context mContext;
 
@@ -241,11 +236,8 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
             IDreamManager dreamManager,
             Lazy<CameraLauncher> cameraLauncherLazy,
             Lazy<LightRevealScrimViewModel> lightRevealScrimViewModelLazy,
-            WallpaperNotifier wallpaperNotifier,
-            Optional<ReverseChargingViewController> reverseChargingViewControllerOptional,
             TunerService tunerService,
-            SysUiState sysUiState,
-            BurnInProtectionController burnInProtectionController) {
+            SysUiState sysUiState) {
         super(context, notificationsController, fragmentService, lightBarController,
                 autoHideController, statusBarWindowController, statusBarWindowStateController,
                 keyguardUpdateMonitor, statusBarSignalPolicy, pulseExpansionHandler,
@@ -275,7 +267,7 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
                 messageRouter, wallpaperManager, startingSurfaceOptional, activityLaunchAnimator,
                 jankMonitor, deviceStateManager, wiredChargingRippleController,
                 dreamManager, cameraLauncherLazy, lightRevealScrimViewModelLazy,
-                tunerService, sysUiState, burnInProtectionController);
+                tunerService, sysUiState);
         mContext = context;
         mBatteryStateChangeCallback = new BatteryController.BatteryStateChangeCallback() {
             @Override
@@ -285,45 +277,25 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
                     if (SystemClock.uptimeMillis() - mAnimStartTime > 1500) {
                         mChargingAnimShown = false;
                     }
-                    mReverseChargingAnimShown = false;
                 }
                 if (DEBUG) {
-                    Log.d("StatusBarGoogle", "onBatteryLevelChanged(): level=" + i + ",wlc=" + (mBatteryController.isWirelessCharging() ? 1 : 0) + ",wlcs=" + mChargingAnimShown + ",rtxs=" + mReverseChargingAnimShown + ",this=" + this);
-                }
-            }
-
-            @Override
-            public void onReverseChanged(boolean z, int i, String str) {
-                if (!z && i >= 0 && !TextUtils.isEmpty(str) && mBatteryController.isWirelessCharging() && mChargingAnimShown && !mReverseChargingAnimShown) {
-                    mReverseChargingAnimShown = true;
-                    long uptimeMillis = SystemClock.uptimeMillis() - mAnimStartTime;
-                    long j = uptimeMillis > 1500 ? 0L : 1500 - uptimeMillis;
-                    showChargingAnimation(mReceivingBatteryLevel, i, j);
-                }
-                if (DEBUG) {
-                    Log.d("StatusBarGoogle", "onReverseChanged(): rtx=" + (z ? 1 : 0) + ",rxlevel=" + mReceivingBatteryLevel + ",level=" + i + ",name=" + str + ",wlc=" + (mBatteryController.isWirelessCharging() ? 1 : 0) + ",wlcs=" + mChargingAnimShown + ",rtxs=" + mReverseChargingAnimShown + ",this=" + this);
+                    Log.d("StatusBarGoogle", "onBatteryLevelChanged(): level=" + i + ",wlc=" + (mBatteryController.isWirelessCharging() ? 1 : 0) + ",wlcs=" + mChargingAnimShown + ",rtxs=");
                 }
             }
         };
-        mReverseChargingViewControllerOptional = reverseChargingViewControllerOptional;
         mKeyguardIndicationController = keyguardIndicationControllerGoogle;
         mStatusBarStateController = statusBarStateController;
-        mWallpaperNotifier = wallpaperNotifier;
     }
 
     @Override
     public void start() {
         super.start();
-        mWallpaperNotifier.attach();
         mBatteryController.observe(getLifecycle(), mBatteryStateChangeCallback);
         DockObserver dockObserver = (DockObserver) Dependency.get(DockManager.class);
         dockObserver.setDreamlinerGear((ImageView) mNotificationShadeWindowView.findViewById(R.id.dreamliner_gear));
         dockObserver.setPhotoPreview((FrameLayout) mNotificationShadeWindowView.findViewById(R.id.photo_preview));
         dockObserver.setIndicationController(new DockIndicationController(mContext, mKeyguardIndicationController, mStatusBarStateController, this));
         dockObserver.registerDockAlignInfo();
-        if (mReverseChargingViewControllerOptional.isPresent()) {
-            mReverseChargingViewControllerOptional.get().initialize();
-        }
     }
 
     @Override
