@@ -236,7 +236,6 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
             IDreamManager dreamManager,
             Lazy<CameraLauncher> cameraLauncherLazy,
             Lazy<LightRevealScrimViewModel> lightRevealScrimViewModelLazy,
-            SmartSpaceController smartSpaceController,
             TunerService tunerService,
             SysUiState sysUiState) {
         super(context, notificationsController, fragmentService, lightBarController,
