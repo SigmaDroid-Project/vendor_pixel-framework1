@@ -71,12 +71,10 @@ import com.android.systemui.qs.tiles.UiModeNightTile;
 import com.android.systemui.qs.tiles.UsbTetherTile;
 import com.android.systemui.qs.tiles.VolumeTile;
 import com.android.systemui.qs.tiles.VpnTile;
-import com.android.systemui.qs.tiles.WeatherTile;
 import com.android.systemui.qs.tiles.WifiTile;
 import com.android.systemui.qs.tiles.WorkModeTile;
 import com.android.systemui.util.leak.GarbageMonitor;
 import com.google.android.systemui.qs.tiles.BatterySaverTileGoogle;
-import com.google.android.systemui.qs.tiles.ReverseChargingTile;
 
 // Custom
 import com.android.systemui.qs.tiles.PowerShareTile;
@@ -90,7 +88,6 @@ import dagger.Lazy;
 @SysUISingleton
 public class QSFactoryImplGoogle extends QSFactoryImpl {
     private final Provider<BatterySaverTileGoogle> mBatterySaverTileGoogleProvider;
-    private final Provider<ReverseChargingTile> mReverseChargingTileProvider;
 
     @Inject
     public QSFactoryImplGoogle(
@@ -126,15 +123,14 @@ public class QSFactoryImplGoogle extends QSFactoryImpl {
             Provider<OneHandedModeTile> oneHandedModeTileProvider,
             Provider<ColorCorrectionTile> colorCorrectionTileProvider,
             Provider<DreamTile> dreamTileProvider,
-            Provider<ReverseChargingTile> reverseChargingTileProvider,
             Provider<AmbientDisplayTile> ambientDisplayTileProvider,
             Provider<AODTile> aodTileProvider,
             Provider<CaffeineTile> caffeineTileProvider,
             Provider<HeadsUpTile> headsUpTileProvider,
-            Provider<ReadingModeTile> readingModeTileProvider,
-            Provider<SyncTile> syncTileProvider,
             Provider<PowerShareTile> powerShareTileProvider,
             Provider<ProfilesTile> profilesTileProvider,
+            Provider<ReadingModeTile> readingModeTileProvider,
+            Provider<SyncTile> syncTileProvider,
             Provider<UsbTetherTile> usbTetherTileProvider,
             Provider<VpnTile> vpnTileProvider,
             Provider<SoundTile> soundTileProvider,
@@ -145,7 +141,6 @@ public class QSFactoryImplGoogle extends QSFactoryImpl {
             Provider<DataSwitchTile> dataSwitchTileProvider,
             Provider<VolumeTile> volumeTileProvider,
             Provider<SmartPixelsTile> smartPixelsTileProvider,
-            Provider<WeatherTile> weatherTileProvider,
             Provider<RefreshRateTile> refreshRateTileProvider,
             Provider<ScreenshotTile> screenshotTileProvider,
             Provider<SoundSearchTile> soundSearchTileProvider,
@@ -200,20 +195,16 @@ public class QSFactoryImplGoogle extends QSFactoryImpl {
                 dataSwitchTileProvider,
                 volumeTileProvider,
                 smartPixelsTileProvider,
-                weatherTileProvider,
                 refreshRateTileProvider,
                 screenshotTileProvider,
                 soundSearchTileProvider,
                 localeTileProvider);
-        mReverseChargingTileProvider = reverseChargingTileProvider;
         mBatterySaverTileGoogleProvider = batterySaverTileGoogleProvider;
     }
 
     @Override
     public final QSTileImpl createTileInternal(String str) {
-        if (str.equals("reverse")) {
-            return mReverseChargingTileProvider.get();
-        } else if (str.equals("battery")) {
+if (str.equals("battery")) {
             return mBatterySaverTileGoogleProvider.get();
         }
         return super.createTileInternal(str);
