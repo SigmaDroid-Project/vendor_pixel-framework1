@@ -118,10 +118,10 @@ import com.android.systemui.util.concurrency.MessageRouter;
 import com.android.systemui.volume.VolumeComponent;
 import com.android.wm.shell.bubbles.Bubbles;
 import com.android.wm.shell.startingsurface.StartingSurface;
-
+import com.google.android.systemui.NotificationLockscreenUserManagerGoogle;
 import com.google.android.systemui.dreamliner.DockIndicationController;
 import com.google.android.systemui.dreamliner.DockObserver;
-
+import com.google.android.systemui.smartspace.SmartSpaceController;
 import com.google.android.systemui.statusbar.KeyguardIndicationControllerGoogle;
 
 import java.util.Optional;
@@ -135,10 +135,12 @@ import dagger.Lazy;
 @SysUISingleton
 public class CentralSurfacesGoogle extends CentralSurfacesImpl {
 
-    private static final boolean DEBUG = Log.isLoggable("StatusBarGoogle", 3);
+    private static final boolean DEBUG = Log.isLoggable("CentralSurfacesGoogle", 3);
     private final BatteryController.BatteryStateChangeCallback mBatteryStateChangeCallback;
     private final KeyguardIndicationControllerGoogle mKeyguardIndicationController;
     private final SysuiStatusBarStateController mStatusBarStateController;
+    private final SmartSpaceController mSmartSpaceController;
+    private final NotificationLockscreenUserManagerGoogle mNotificationLockscreenUserManagerGoogle;
 
     private long mAnimStartTime;
     private int mReceivingBatteryLevel;
@@ -175,7 +177,7 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
             MetricsLogger metricsLogger,
             @UiBackground Executor uiBgExecutor,
             NotificationMediaManager notificationMediaManager,
-	    NotificationLockscreenUserManager lockScreenUserManager,
+            NotificationLockscreenUserManagerGoogle notificationLockscreenUserManagerGoogle,
             NotificationRemoteInputManager remoteInputManager,
             UserSwitcherController userSwitcherController,
             BatteryController batteryController,
@@ -236,6 +238,7 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
             IDreamManager dreamManager,
             Lazy<CameraLauncher> cameraLauncherLazy,
             Lazy<LightRevealScrimViewModel> lightRevealScrimViewModelLazy,
+            SmartSpaceController smartSpaceController,
             TunerService tunerService,
             SysUiState sysUiState) {
         super(context, notificationsController, fragmentService, lightBarController,
@@ -246,7 +249,7 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
                 broadcastDispatcher, notificationGutsManager, notificationLogger, notificationInterruptStateProvider,
                 shadeExpansionStateManager, keyguardViewMediator,
                 displayMetrics, metricsLogger, uiBgExecutor, notificationMediaManager,
-                lockScreenUserManager, remoteInputManager, userSwitcherController,
+                notificationLockscreenUserManagerGoogle, remoteInputManager, userSwitcherController,
                 batteryController, colorExtractor, screenLifecycle,
                 wakefulnessLifecycle, statusBarStateController,
                 bubblesOptional, deviceProvisionedController,
@@ -279,12 +282,14 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
                     }
                 }
                 if (DEBUG) {
-                    Log.d("StatusBarGoogle", "onBatteryLevelChanged(): level=" + i + ",wlc=" + (mBatteryController.isWirelessCharging() ? 1 : 0) + ",wlcs=" + mChargingAnimShown + ",rtxs=");
+                    Log.d("CentralSurfacesGoogle", "onBatteryLevelChanged(): level=" + i + ",wlc=" + (mBatteryController.isWirelessCharging() ? 1 : 0) + ",wlcs=" + mChargingAnimShown + ",rtxs=" + mReverseChargingAnimShown + ",this=" + this);
                 }
             }
         };
         mKeyguardIndicationController = keyguardIndicationControllerGoogle;
         mStatusBarStateController = statusBarStateController;
+        mSmartSpaceController = smartSpaceController;
+        mNotificationLockscreenUserManagerGoogle = notificationLockscreenUserManagerGoogle;
     }
 
     @Override
@@ -296,15 +301,22 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
         dockObserver.setPhotoPreview((FrameLayout) mNotificationShadeWindowView.findViewById(R.id.photo_preview));
         dockObserver.setIndicationController(new DockIndicationController(mContext, mKeyguardIndicationController, mStatusBarStateController, this));
         dockObserver.registerDockAlignInfo();
+        mNotificationLockscreenUserManagerGoogle.updateSmartSpaceVisibilitySettings();
     }
 
     @Override
     public void showWirelessChargingAnimation(int i) {
         if (DEBUG) {
-            Log.d("StatusBarGoogle", "showWirelessChargingAnimation()");
+            Log.d("CentralSurfacesGoogle", "showWirelessChargingAnimation()");
         }
         mChargingAnimShown = true;
         super.showWirelessChargingAnimation(i);
         mAnimStartTime = SystemClock.uptimeMillis();
+    }
+
+    @Override
+    public void setLockscreenUser(int i) {
+        super.setLockscreenUser(i);
+        mSmartSpaceController.reloadData();
     }
 }
