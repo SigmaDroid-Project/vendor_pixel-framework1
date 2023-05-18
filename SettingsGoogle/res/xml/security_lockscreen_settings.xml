@@ -7,14 +7,13 @@
     <PreferenceCategory
         android:key="lockscreen_what_to_show"
         android:title="@string/lockscreen_settings_what_to_show_category">
-
         <com.android.settings.RestrictedListPreference
             android:key="security_setting_lock_screen_notif"
             android:title="@string/lock_screen_notifications_title"
             android:summary="@string/summary_placeholder"
-            settings:keywords="@string/keywords_lock_screen_notif" />
+            settings:keywords="@string/keywords_lock_screen_notif"/>
 
-        <com.crdroid.settings.preferences.SecureSettingListPreference
+        <com.alpha.settings.preferences.SecureSettingListPreference
             android:key="face_unlock_method"
             android:title="@string/face_unlock_method_title"
             android:summary="%s"
@@ -81,7 +80,6 @@
             android:title="@string/lockscreen_double_line_clock_setting_toggle"
             android:summary="@string/lockscreen_double_line_clock_summary"
             settings:controller="com.android.settings.display.LockscreenClockPreferenceController" />
-
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -153,7 +151,7 @@
             android:key="security_setting_lock_screen_notif_work"
             android:title="@string/locked_work_profile_notification_title"
             android:summary="@string/summary_placeholder"
-            settings:searchable="false" />
+            settings:searchable="false"/>
 
     </PreferenceCategory>
 
