@@ -13,7 +13,6 @@
         android:order="-185"
         settings:allowDividerBelow="true"
         settings:controller="com.android.settings.notification.RemoteVolumeGroupController">
-
     </PreferenceCategory>
 
     <!-- Media volume -->
@@ -206,6 +205,11 @@
         android:order="-5"/>
 
     <!-- Dial pad tones -->
+    <SwitchPreference
+        android:key="dial_pad_tones"
+        android:title="@string/dial_pad_tones_title"
+        android:order="-50"/>
+
     <Preference
         android:fragment="com.google.android.settings.notification.ClearCallingSettings"
         android:key="clear_calling"
@@ -213,11 +217,6 @@
         android:summary="@string/clear_calling_topintro"
         android:title="@string/clear_calling_title"
         settings:controller="com.google.android.settings.notification.ClearCallingPreferenceController" />
-
-    <SwitchPreference
-        android:key="dial_pad_tones"
-        android:title="@string/dial_pad_tones_title"
-        android:order="-50"/>
 
     <!-- Screen locking sounds -->
     <SwitchPreference
