@@ -21,6 +21,7 @@ android_library {
         "tensorflowlite_java",
         "android.frameworks.stats-V1-java",
         "vendor-pixelatoms-java",
+        "smartspace-proto-java",
         "guava",
         "matchmaker-lib",
         "touchcontext-lib",
