@@ -26,7 +26,6 @@
     <!-- Media output switcher -->
     <Preference
         android:key="media_output"
-        android:icon="@drawable/ic_app_volume"
         android:title="@string/media_output_title"
         android:dialogTitle="@string/media_output_title"
         android:order="-175"
@@ -53,7 +52,7 @@
     <!-- Ring volume -->
     <com.android.settings.notification.VolumeSeekBarPreference
         android:key="ring_volume"
-        android:icon="@drawable/ic_volume_ringer"
+        android:icon="@drawable/ic_notifications"
         android:title="@string/ring_volume_option_title"
         android:order="-160"
         settings:controller="com.android.settings.notification.RingVolumePreferenceController"/>
@@ -74,14 +73,6 @@
         android:title="@string/alarm_volume_option_title"
         android:order="-140"
         settings:controller="com.android.settings.notification.AlarmVolumePreferenceController"/>
-
-    <!-- Link ringtone and notification volumes -->
-    <lineageos.preference.SecureSettingSwitchPreference
-        android:key="volume_link_notification"
-        android:title="@string/volume_link_notification_title"
-        android:defaultValue="@*android:bool/config_alias_ring_notif_stream_types"
-        android:order="-138"
-        settings:controller="com.android.settings.notification.LinkedVolumesPreferenceController"/>
 
     <!-- Increasing ring -->
     <lineageos.preference.LineageSystemSettingSwitchPreference
@@ -127,6 +118,14 @@
         android:summary="@string/summary_placeholder"
         android:ringtoneType="ringtone"
         android:order="-119"/>
+
+    <!-- Adaptive Playback -->
+    <Preference
+        android:key="sound_adaptive_playback_summary"
+        android:title="@string/adaptive_playback_screen_title"
+        android:fragment="com.android.settings.sound.AdaptivePlaybackSoundSettings"
+        android:order="-114"
+        settings:controller="com.android.settings.sound.AdaptivePlaybackParentPreferenceController" />
 
     <!-- Live Caption -110 and Now Playing -105-->
 
@@ -197,7 +196,7 @@
         android:ringtoneType="alarm"
         android:order="-60"/>
 
-    <com.alpha.settings.preferences.SystemSettingSwitchPreference
+    <com.spark.settings.preferences.SystemSettingSwitchPreference
         android:key="show_app_volume"
         android:title="@string/app_volume_title"
         android:summary="@string/app_volume_summary"
@@ -215,6 +214,12 @@
         android:key="screen_locking_sounds"
         android:title="@string/screen_locking_sounds_title"
         android:order="-45"/>
+
+    <!-- Screenshot sound -->
+    <com.spark.settings.preferences.SystemSettingSwitchPreference
+        android:key="screenshot_shutter_sound"
+        android:title="@string/screenshot_shutter_sound_title"
+        android:order="-43"/>
 
     <!-- Charging sounds -->
     <SwitchPreference
@@ -264,6 +269,33 @@
         android:title="@string/emergency_tone_title"
         android:summary="%s"
         android:order="-10"/>
+
+    <com.spark.settings.preferences.SystemSettingSwitchPreference
+        android:key="notification_sound_vib_screen_on"
+        android:title="@string/notification_sound_vib_screen_on_title"
+        android:summary="@string/notification_sound_vib_screen_on_summary"
+        android:defaultValue="true" />
+
+    <PreferenceCategory
+        android:key="incall_vib_options"
+        android:title="@string/incall_vibration_category" >
+
+    <com.spark.settings.preferences.SystemSettingSwitchPreference
+        android:key="vibrate_on_connect"
+        android:title="@string/incall_vibrate_connect_title"
+        android:defaultValue="false" />
+
+    <com.spark.settings.preferences.SystemSettingSwitchPreference
+        android:key="vibrate_on_callwaiting"
+        android:title="@string/incall_vibrate_call_wait_title"
+        android:defaultValue="false" />
+
+    <com.spark.settings.preferences.SystemSettingSwitchPreference
+        android:key="vibrate_on_disconnect"
+        android:title="@string/incall_vibrate_disconnect_title"
+        android:defaultValue="false" />
+
+    </PreferenceCategory>
 
     <Preference
         android:key="sound_work_settings"
