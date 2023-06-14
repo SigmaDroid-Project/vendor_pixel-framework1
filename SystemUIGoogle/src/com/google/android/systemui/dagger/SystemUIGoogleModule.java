@@ -39,6 +39,7 @@ import com.android.systemui.dock.DockManager;
 import com.android.systemui.dock.DockManagerImpl;
 import com.android.systemui.doze.DozeHost;
 import com.android.systemui.dump.DumpManager;
+import com.android.systemui.evolution.EvolutionModule;
 import com.android.systemui.media.dagger.MediaModule;
 import com.android.systemui.navigationbar.gestural.GestureModule;
 import com.android.systemui.plugins.BcSmartspaceDataPlugin;
@@ -90,6 +91,7 @@ import com.google.android.systemui.dreamliner.dagger.DreamlinerModule;
 import com.google.android.systemui.power.dagger.PowerModuleGoogle;
 import com.google.android.systemui.qs.dagger.QSModuleGoogle;
 import com.google.android.systemui.qs.tileimpl.QSFactoryImplGoogle;
+import com.google.android.systemui.qs.tileimpl.GoogleQSModule;
 import com.google.android.systemui.reversecharging.ReverseChargingController;
 import com.google.android.systemui.reversecharging.dagger.ReverseChargingModule;
 import com.google.android.systemui.smartspace.BcSmartspaceDataProvider;
@@ -109,6 +111,7 @@ import dagger.Lazy;
 @Module(includes = {
         GestureModule.class,
         MediaModule.class,
+        GoogleQSModule.class,
         PowerModuleGoogle.class,
         QSModuleGoogle.class,
         ReferenceScreenshotModule.class,
@@ -119,6 +122,7 @@ import dagger.Lazy;
         ReverseChargingModule.class,
         AssistModule.class,
         ColumbusModule.class,
+        EvolutionModule.class
 })
 public abstract class SystemUIGoogleModule {
 
