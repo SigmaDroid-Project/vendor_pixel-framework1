@@ -10,7 +10,7 @@ import com.google.android.settings.security.SecuritySettingsFeatureProviderGoogl
 import com.google.android.settings.search.SearchFeatureProviderGoogleImpl;
 import com.google.android.settings.fuelgauge.PowerUsageFeatureProviderGoogleImpl;
 import com.google.android.settings.core.instrumentation.SettingsGoogleMetricsFeatureProvider;
-import com.google.android.settings.biometrics.face.FaceFeatureProviderGoogleImpl;
+// import com.google.android.settings.biometrics.face.FaceFeatureProviderGoogleImpl;
 import com.google.android.settings.connecteddevice.dock.DockUpdaterFeatureProviderGoogleImpl;
 import com.google.android.settings.bluetooth.BluetoothFeatureProviderGoogleImpl;
 import com.android.settings.overlay.FeatureFactory;
@@ -57,7 +57,7 @@ public class FeatureFactoryGoogleImpl extends com.android.settings.overlay.Featu
     private BatteryStatusFeatureProvider mBatteryStatusFeatureProvider;
     private BluetoothFeatureProvider mBluetoothFeatureProvider;
     private DockUpdaterFeatureProvider mDockUpdaterFeatureProvider;
-    private FaceFeatureProvider mFaceFeatureProvider;
+ //   private FaceFeatureProvider mFaceFeatureProvider;
     private MetricsFeatureProvider mMetricsFeatureProvider;
     private PowerUsageFeatureProvider mPowerUsageProvider;
     private SearchFeatureProvider mSearchFeatureProvider;
@@ -148,13 +148,13 @@ public class FeatureFactoryGoogleImpl extends com.android.settings.overlay.Featu
         return mDockUpdaterFeatureProvider;
     }
 
-    @Override
-    public FaceFeatureProvider getFaceFeatureProvider() {
-        if (mFaceFeatureProvider == null) {
-            mFaceFeatureProvider = new FaceFeatureProviderGoogleImpl();
-        }
-        return mFaceFeatureProvider;
-    }
+    // @Override
+    // public FaceFeatureProvider getFaceFeatureProvider() {
+    //     if (mFaceFeatureProvider == null) {
+    //         mFaceFeatureProvider = new FaceFeatureProviderGoogleImpl();
+    //     }
+    //     return mFaceFeatureProvider;
+    // }
 
     @Override
     public MetricsFeatureProvider getMetricsFeatureProvider() {
