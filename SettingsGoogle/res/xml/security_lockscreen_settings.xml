@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <!-- Copyright (C) 2017 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
@@ -110,12 +111,6 @@
             settings:keywords="@string/keywords_always_show_time_info"
             settings:controller="com.android.settings.display.AmbientDisplayAlwaysOnPreferenceController"
             settings:userRestriction="no_ambient_display" />
-
-         <Preference
-            android:key="always_on_display_schedule"
-            android:title="@string/always_on_display_schedule_title"
-            android:fragment="com.android.settings.display.AODSchedule"
-            settings:controller="com.android.settings.display.AODSchedulePreferenceController" />
 
         <Preference
             android:key="ambient_display_tap"
