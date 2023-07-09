@@ -39,7 +39,7 @@ import com.android.systemui.dock.DockManager;
 import com.android.systemui.dock.DockManagerImpl;
 import com.android.systemui.doze.DozeHost;
 import com.android.systemui.dump.DumpManager;
-import com.android.systemui.evolution.EvolutionModule;
+import com.android.systemui.lineage.LineageModule;
 import com.android.systemui.media.dagger.MediaModule;
 import com.android.systemui.navigationbar.gestural.GestureModule;
 import com.android.systemui.plugins.BcSmartspaceDataPlugin;
@@ -127,7 +127,7 @@ import dagger.Lazy;
         StatusBarEventsModule.class,
         AospPolicyModule.class,
         RotationLockModule.class,
-        EvolutionModule.class
+        LineageModule.class
 })
 public abstract class SystemUIGoogleModule {
 
