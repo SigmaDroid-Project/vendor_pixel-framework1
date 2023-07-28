@@ -44,8 +44,8 @@
         settings:keywords="@string/keywords_battery_adaptive_preferences" />
 
     <!-- Charging control -->
-    <lineageos.preference.LineagePartsPreference
-        android:key="charging_control" />
+    <!-- <lineageos.preference.LineagePartsPreference -->
+        <!-- android:key="charging_control" /> -->
 
     <Preference
         android:fragment="com.google.android.settings.fuelgauge.reversecharging.ReverseChargingDashboardFragment"
