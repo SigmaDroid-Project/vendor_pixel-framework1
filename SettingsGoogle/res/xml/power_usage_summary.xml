@@ -39,7 +39,7 @@
         android:title="@string/advanced_battery_preference_title"
         settings:searchable="false" />
 
-    <com.evolution.settings.preference.SystemSettingSwitchPreference
+    <com.sigma.settings.preference.SystemSettingSwitchPreference
         android:key="battery_24_hrs_stats"
         android:order="-3"
         android:title="@string/advanced_battery_preference_summary_google"

@@ -14,7 +14,7 @@
             android:title="@string/lock_screen_notifications_title"
             settings:keywords="@string/keywords_lock_screen_notif" />
 
-        <com.evolution.settings.preference.SecureSettingListPreference
+        <com.sigma.settings.preference.SecureSettingListPreference
             android:key="face_unlock_method"
             android:title="@string/face_unlock_method_title"
             android:summary="%s"
@@ -119,7 +119,7 @@
             settings:controller="com.android.settings.gestures.PickupGesturePreferenceController"
             settings:searchable="false" />
 
-        <com.evolution.settings.preference.SecureSettingSwitchPreference
+        <com.sigma.settings.preference.SecureSettingSwitchPreference
             android:key="screen_off_udfps_enabled"
             android:title="@string/ambient_display_screen_off_udfps_title"
             android:summary="@string/ambient_display_screen_off_udfps_summary"
@@ -134,7 +134,7 @@
             settings:controller="com.android.settings.display.AmbientDisplayNotificationsPreferenceController" />
 
         <!-- Controls wake for notifications -->
-        <com.evolution.settings.preference.SecureSettingSwitchPreference
+        <com.sigma.settings.preference.SecureSettingSwitchPreference
             android:key="doze_for_notifications"
             android:summary="@string/doze_summary"
             android:title="@string/doze_title"
