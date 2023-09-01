@@ -129,7 +129,7 @@ import com.google.android.systemui.dreamliner.DockIndicationController;
 import com.google.android.systemui.dreamliner.DockObserver;
 import com.google.android.systemui.reversecharging.ReverseChargingViewController;
 import com.google.android.systemui.statusbar.KeyguardIndicationControllerGoogle;
-//import com.android.systemui.statusbar.policy.BurnInProtectionController;
+import com.android.systemui.statusbar.policy.BurnInProtectionController;
 
 import java.util.Optional;
 import java.util.concurrent.Executor;
@@ -149,7 +149,7 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
     private final SysuiStatusBarStateController mStatusBarStateController;
     //private final Optional<ReverseChargingViewController> mReverseChargingViewControllerOptional;
     //private final WallpaperNotifier mWallpaperNotifier;
-    //private final BurnInProtectionController mBurnInProtectionController;
+    private final BurnInProtectionController mBurnInProtectionController;
     private final NotificationLockscreenUserManagerGoogle mNotificationLockscreenUserManagerGoogle;
 
     private long mAnimStartTime;
@@ -260,9 +260,9 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
             UserTracker userTracker,
             Provider<FingerprintManager> fingerprintManager,
             TunerService tunerService,
-            SysUiState sysUiState) {
+            SysUiState sysUiState,
             //TaskHelper taskHelper,
-            //BurnInProtectionController burnInProtectionController) {
+            BurnInProtectionController burnInProtectionController) {
         super(context, notificationsController, fragmentService, lightBarController,
                 autoHideController, statusBarWindowController, statusBarWindowStateController,
                 keyguardUpdateMonitor, statusBarSignalPolicy, pulseExpansionHandler,
@@ -292,7 +292,7 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
                 messageRouter, wallpaperManager, startingSurfaceOptional, activityLaunchAnimator,
                 jankMonitor, deviceStateManager, wiredChargingRippleController,
                 dreamManager, cameraLauncherLazy, lightRevealScrimViewModelLazy, alternateBouncerInteractor, userTracker, fingerprintManager,
-                tunerService, sysUiState/*taskHelper, burnInProtectionController*/);
+                tunerService, sysUiState, /*taskHelper,*/ burnInProtectionController);
        this.mContext = context;
         mBatteryStateChangeCallback = new BatteryController.BatteryStateChangeCallback() {
             @Override
@@ -326,7 +326,7 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
         mKeyguardIndicationController = keyguardIndicationControllerGoogle;
         mStatusBarStateController = statusBarStateController;
         //mWallpaperNotifier = wallpaperNotifier;
-        //mBurnInProtectionController = burnInProtectionController;
+        mBurnInProtectionController = burnInProtectionController;
         mNotificationLockscreenUserManagerGoogle = notificationLockscreenUserManagerGoogle;
 
     }
