@@ -18,6 +18,7 @@
     <color name="face_enroll_cell_not_enrolled_primary">#b24285f4</color>
     <color name="face_enroll_cell_not_enrolled_secondary">#00ffffff</color>
     <color name="face_enroll_check_color">#ff42a5f5</color>
+    <color name="face_enroll_icon_color">#ff42a5f5</color>
     <color name="face_enroll_cursor_acquired">#ffffffff</color>
     <color name="face_enroll_cursor_gone">#00ffffff</color>
     <color name="face_enroll_cursor_shadow">#ff979797</color>

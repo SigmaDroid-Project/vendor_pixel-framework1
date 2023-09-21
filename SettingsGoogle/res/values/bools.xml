@@ -6,6 +6,9 @@
     <bool name="config_connectivity_helper_call_quality_default_value">true</bool>
     <bool name="config_connectivity_helper_d2d_default_value">false</bool>
     <bool name="config_face_enroll_use_traffic_light">true</bool>
+    <bool name="config_face_education_use_lottie">true</bool>
+    <bool name="config_face_intro_show_less_secure">true</bool>
+    <bool name="config_face_intro_show_require_eyes">false</bool>
     <bool name="config_face_settings_attention_supported">true</bool>
     <bool name="config_face_settings_should_manage_preview">true</bool>
     <bool name="config_gesture_settings_enabled">true</bool>

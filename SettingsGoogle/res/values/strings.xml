@@ -60,7 +60,7 @@
     <string name="assist_gesture_training_suggestion_title">Squeeze and release for Assistant</string>
     <string name="automatic_storage_manager_activation_warning">"When you're connected, you can still access photos and videos at the quality you selected for backup"</string>
     <string name="automatic_storage_manager_days_title">Remove backed up photos &amp; videos</string>
-    <string name="automatic_storage_manager_deactivation_warning">"Turn off Smart Storage? 
+    <string name="automatic_storage_manager_deactivation_warning">"Turn off Smart Storage?
 
 Smart Storage won't free up space when your storage is almost full."</string>
     <string name="automatic_storage_manager_downloads_days_title">Backed up downloads</string>
@@ -122,6 +122,10 @@ Once it resets, go through the setup process and choose to bring your data from 
     <string name="battery_tip_limited_temporarily_extra_summary">To protect your battery, charging is paused at %1$s while your tablet is docked</string>
     <string name="battery_tip_smart_battery_summary">Turn on Adaptive Battery</string>
     <string name="bluetooth_untethered_unpair_dialog_body">%1$s will no longer be paired with any device linked to this Google Account</string>
+    <string name="biometrics_unlock_set_unlock_password">Password • Fingerprint • Face</string>
+    <string name="biometrics_unlock_set_unlock_pattern">Pattern • Fingerprint • Face</string>
+    <string name="biometrics_unlock_set_unlock_pin">PIN • Fingerprint • Face</string>
+    <string name="suggested_fingerprint_lock_settings_title">Use Fingerprint Unlock</string>
     <string name="clear_calling_footer">"To protect your privacy, Clear Calling never sends audio or conversations to Google.
 
 Clear Calling is available depending on your Wi‑Fi and mobile network."</string>
@@ -203,8 +207,9 @@ Clear Calling is available depending on your Wi‑Fi and mobile network."</strin
     <string name="config_deletion_helper_package">com.google.android.storagemanager</string>
     <string name="config_emergency_intent_action">com.google.android.safetyhub.SAFETY_HUB</string>
     <string name="config_emergency_package_name">com.google.android.apps.safetyhub</string>
-    <string name="config_face_enroll">com.android.settings/com.google.android.settings.biometrics.face.FaceEnrollTrampoline</string>
-    <string name="config_face_enroll_traffic_light_package"/>
+    <string name="config_face_enroll">com.android.settings/com.google.android.settings.biometrics.face.FaceEnrollActivityDirector</string>
+    <string name="config_face_enroll_traffic_light_package">com.google.android.settings.future.biometrics.faceenroll</string>
+    <string name="config_face_enroll_guidance_page">com.android.settings/com.google.android.settings.biometrics.face.FaceEnrollFoldPage</string>
     <string name="config_featureFactory">com.google.android.settings.overlay.FeatureFactoryGoogleImpl</string>
     <string name="config_grayscale_settings_intent">intent:#Intent;action=com.google.android.apps.wellbeing.action.WIND_DOWN;launchFlags=0x10000000;end</string>
     <string name="config_non_public_slice_query_uri">content://com.android.settings.slices/settings_internal_slices</string>
@@ -537,6 +542,28 @@ To improve performance, you can set up Face Unlock again in Settings."</string>
     <string name="security_settings_fingerprint_preference_summary_none">Tap to set up fingerprint</string>
     <string name="security_settings_fingerprint_v2_enroll_introduction_message_learn_more">"Learn more about Pixel fingerprint unlock at &lt;a href='http://g.co/pixel/fingerprintunlock'&gt;g.co/pixel/fingerprintunlock&lt;/a&gt;."</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint for work</string>
+    <string name="security_dismiss_dialog_stay_button">Stay</string>
+    <string name="security_settings_face_enroll_education_message_alt">Hold the phone at eye level and rotate your head</string>
+    <string name="security_settings_face_enroll_education_message_accessibility_hint">For best results, ensure there’s enough light and avoid wearing masks or sunglasses</string>
+    <string name="security_settings_face_enroll_finish_congratulations_message">Congratulations! You’ve set up Face Unlock.</string>
+    <string name="security_settings_face_enroll_introduction_accessibility_motor">If you have limited head motion, we’ll guide you through a different setup process</string>
+    <string name="security_settings_face_enroll_introduction_accessibility_message">Face Unlock has been designed to be inclusive, even if you have limited vision or head motion</string>
+    <string name="security_settings_face_enroll_introduction_info_friends">Your friends might be able to unlock your phone if they look a lot like you.</string>
+    <string name="security_settings_face_enroll_introduction_learn_more">Learn more about how Face Unlock works and how your data is protected.</string>
+    <string name="security_settings_face_enroll_introduction_skip_setup">Skip setup</string>
+    <string name="security_settings_face_enroll_skip_confirmation">If you skip this step, you can set up Face Unlock later in Settings</string>
+    <string name="security_settings_face_enroll_skip_confirmation_button">Skip</string>
+    <string name="security_settings_face_enroll_start_over_message">If you’re having trouble, you can start the setup process over</string>
+    <string name="security_settings_face_enroll_take_off_glasses">If you wear glasses, please take them off for the initial setup</string>
+    <string name="security_settings_fingerprint_add_another_button">Add another</string>
+    <string name="security_settings_fingerprint_delete_button">Delete</string>
+    <string name="security_settings_fingerprint_hardware_not_available">Fingerprint hardware not available</string>
+    <string name="security_settings_fingerprint_icon_description_confirmed">Fingerprint recognized</string>
+    <string name="security_settings_fingerprint_icon_description_error">Fingerprint not recognized</string>
+    <string name="security_settings_fingerprint_icon_description_input">Place your finger on the sensor</string>
+    <string name="security_settings_fingerprint_preference_description">Tap to start setup</string>
+    <string name="security_settings_fingerprint_preference_title_v2">Pixel Imprint</string>
+    <string name="security_settings_work_fingerprint_add_title">Add fingerprint for work</string>
     <string name="settingslib_config_headlineFontFamily" translatable="false">@*android:string/config_headlineFontFamily</string>
     <string name="setup_suggestion_summary">Copy data, pay with your phone, and more</string>
     <string name="setup_suggestion_title">Finish setting up</string>
