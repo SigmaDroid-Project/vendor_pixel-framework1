@@ -4,5 +4,13 @@
 -keep class com.google.** { *; }
 -keep class vendor.** { *; }
 -keep class hardware.google.** { *; }
+-keep class com.android.wsuinterface.** { *; }
+
+# For reflection
+-keepattributes InnerClasses
+-keep class **.R
+-keep class **.R$* {
+    <fields>;
+}
 
 -include ../../../packages/apps/Settings/proguard.flags
