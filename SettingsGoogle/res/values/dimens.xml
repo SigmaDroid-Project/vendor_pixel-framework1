@@ -31,7 +31,7 @@
     <dimen name="face_error_text_appear_distance">16.0dip</dimen>
     <dimen name="face_preview_translate_x">-130</dimen>
     <dimen name="face_preview_translate_y">-300</dimen>
-  <dimen name="udfps_lottie_translate_y">16776716.000000dp</dimen>
+    <dimen name="udfps_lottie_translate_y">16776716.000000dp</dimen>
     <dimen name="hats_lib_close_button_bottom_left_padding">18.0dip</dimen>
     <dimen name="hats_lib_close_button_size">42.0dip</dimen>
     <dimen name="hats_lib_close_button_top_right_padding">6.0dip</dimen>

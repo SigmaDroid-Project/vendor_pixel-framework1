@@ -564,6 +564,7 @@ To improve performance, you can set up Face Unlock again in Settings."</string>
     <string name="security_settings_fingerprint_preference_description">Tap to start setup</string>
     <string name="security_settings_fingerprint_preference_title_v2">Pixel Imprint</string>
     <string name="security_settings_work_fingerprint_add_title">Add fingerprint for work</string>
+    <string name="security_settings_face_enroll_finish_description">Now you can use your face to unlock your phone or verify it’s you, like when you sign in to apps or approve a purchase</string>
     <string name="settingslib_config_headlineFontFamily" translatable="false">@*android:string/config_headlineFontFamily</string>
     <string name="setup_suggestion_summary">Copy data, pay with your phone, and more</string>
     <string name="setup_suggestion_title">Finish setting up</string>
