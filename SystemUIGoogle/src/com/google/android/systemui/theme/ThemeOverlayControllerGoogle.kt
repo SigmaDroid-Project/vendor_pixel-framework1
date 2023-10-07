@@ -60,8 +60,7 @@ class ThemeOverlayControllerGoogle @Inject constructor(
     dumpManager: DumpManager,
     featureFlags: FeatureFlags,
     @Main resources: Resources,
-    wakefulnessLifecycle: WakefulnessLifecycle,
-    tunerService: TunerService
+    wakefulnessLifecycle: WakefulnessLifecycle
 ) : ThemeOverlayController(
     context,
     broadcastDispatcher,
@@ -79,8 +78,7 @@ class ThemeOverlayControllerGoogle @Inject constructor(
     dumpManager,
     featureFlags,
     resources,
-    wakefulnessLifecycle,
-    tunerService
+    wakefulnessLifecycle
 ) {
 
 }
