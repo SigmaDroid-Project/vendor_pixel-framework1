@@ -58,6 +58,13 @@
         settings:controller="com.android.settings.fuelgauge.BatterySaverController" />
 
     <Preference
+        android:fragment="com.android.settings.fuelgauge.SmartBatterySettings"
+        android:key="smart_battery_manager"
+        android:title="@string/smart_battery_manager_title"
+        settings:controller="com.android.settings.fuelgauge.batterytip.BatteryManagerPreferenceController"
+        settings:keywords="@string/keywords_battery_adaptive_preferences" />
+
+    <Preference
         android:key="high_power_apps"
         android:title="@string/high_power_apps">
         <intent android:action="android.settings.IGNORE_BATTERY_OPTIMIZATION_SETTINGS" />
