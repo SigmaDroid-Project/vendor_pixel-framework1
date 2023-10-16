@@ -56,7 +56,6 @@
     <Preference
         android:fragment="com.google.android.settings.fuelgauge.reversecharging.ReverseChargingDashboardFragment"
         android:key="reverse_charging"
-        android:order="2"
         android:title="@string/reverse_charging_title"
         settings:controller="com.google.android.settings.fuelgauge.reversecharging.ReverseChargingPreferenceController"
         settings:keywords="@string/keywords_battery_share_settings"
