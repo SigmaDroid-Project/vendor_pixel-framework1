@@ -9,6 +9,7 @@ import com.android.settings.accessibility.AccessibilitySearchFeatureProvider;
 import com.android.settings.accounts.AccountFeatureProvider;
 import com.android.settings.applications.ApplicationFeatureProvider;
 import com.android.settings.aware.AwareFeatureProvider;
+import com.android.settings.biometrics.face.FaceFeatureProvider;
 import com.android.settings.bluetooth.BluetoothFeatureProvider;
 import com.android.settings.dashboard.suggestions.SuggestionFeatureProvider;
 import com.android.settings.fuelgauge.BatterySettingsFeatureProvider;
@@ -28,6 +29,7 @@ import com.google.android.settings.accessibility.AccessibilitySearchFeatureProvi
 import com.google.android.settings.accounts.AccountFeatureProviderGoogleImpl;
 import com.google.android.settings.applications.ApplicationFeatureProviderGoogleImpl;
 import com.google.android.settings.aware.AwareFeatureProviderGoogleImpl;
+import com.google.android.settings.biometrics.face.FaceFeatureProviderGoogleImpl;
 import com.google.android.settings.bluetooth.BluetoothFeatureProviderGoogleImpl;
 import com.google.android.settings.connecteddevice.dock.DockUpdaterFeatureProviderGoogleImpl;
 import com.google.android.settings.core.instrumentation.SettingsGoogleMetricsFeatureProvider;
@@ -54,6 +56,7 @@ public final class FeatureFactoryGoogleImpl extends com.android.settings.overlay
     private BatteryStatusFeatureProvider mBatteryStatusFeatureProvider;
     private BluetoothFeatureProvider mBluetoothFeatureProvider;
     private DockUpdaterFeatureProvider mDockUpdaterFeatureProvider;
+    private FaceFeatureProvider mFaceFeatureProvider;
     private MetricsFeatureProvider mMetricsFeatureProvider;
     private PowerUsageFeatureProvider mPowerUsageProvider;
     private SearchFeatureProvider mSearchFeatureProvider;
@@ -158,6 +161,12 @@ public final class FeatureFactoryGoogleImpl extends com.android.settings.overlay
         return this.mAwareFeatureProvider;
     }
 
+    public FaceFeatureProvider getFaceFeatureProvider() {
+        if (this.mFaceFeatureProvider == null) {
+            this.mFaceFeatureProvider = new FaceFeatureProviderGoogleImpl();
+        }
+        return this.mFaceFeatureProvider;
+    }
 
     public WifiTrackerLibProvider getWifiTrackerLibProvider() {
         if (this.mWifiTrackerLibProvider == null) {
