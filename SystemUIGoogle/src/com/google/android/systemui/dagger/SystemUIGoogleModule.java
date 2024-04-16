@@ -77,6 +77,7 @@ import com.android.systemui.volume.dagger.VolumeModule;
 import com.android.systemui.rotationlock.RotationLockModule;
 import com.android.systemui.statusbar.policy.AospPolicyModule;
 
+
 import com.android.systemui.battery.BatterySaverModule;
 import com.android.systemui.settings.dagger.MultiUserUtilsModule;
 import com.android.systemui.statusbar.phone.fragment.CollapsedStatusBarFragmentStartableModule;
@@ -101,6 +102,8 @@ import com.google.android.systemui.statusbar.dagger.StartCentralSurfacesGoogleMo
 import com.google.android.systemui.statusbar.KeyguardIndicationControllerGoogle;
 import com.google.android.systemui.statusbar.policy.BatteryControllerImplGoogle;
 import com.google.android.systemui.statusbar.policy.dagger.SystemUIGooglePolicyModule;
+import com.google.android.systemui.columbus.dagger.ColumbusModule;
+
 
 import javax.inject.Named;
 
@@ -130,6 +133,7 @@ import dagger.Lazy;
         StartCentralSurfacesGoogleModule.class,
         SmartspaceGoogleModule.class,
         ReverseChargingModule.class,
+        ColumbusModule.class,
         SystemUIGooglePolicyModule.class,
         LineageModule.class
 })
