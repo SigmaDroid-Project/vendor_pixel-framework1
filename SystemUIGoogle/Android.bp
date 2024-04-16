@@ -23,7 +23,6 @@ android_library {
         "vendor-pixelatoms-java",
         "smartspace-proto-java",
         "guava",
-        "columbus-lib",
         "googlebattery-lib",
         "google-battery",
         "vendor.google.google_battery-V1-java",
